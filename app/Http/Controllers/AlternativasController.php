@@ -133,6 +133,7 @@ class AlternativasController extends Controller {
         'report_id'    => $rpt_id,
 
         'columna'       => "politicas_" . $i,
+        'n_group'       => "Propuesta 1",
 
         'suma'          => 0,
 
@@ -151,6 +152,7 @@ class AlternativasController extends Controller {
         'report_id'    => $rpt_id,
 
         'columna'       => "educacion_" . $i,
+        'n_group'       => "Propuesta 2",
 
         'suma'          => 0,
 
@@ -169,6 +171,7 @@ class AlternativasController extends Controller {
         'report_id'    => $rpt_id,
 
         'columna'       => "investigacion_" . $i,
+        'n_group'       => "Propuesta 3",
 
         'suma'          => 0,
 
@@ -187,6 +190,7 @@ class AlternativasController extends Controller {
         'report_id'    => $rpt_id,
 
         'columna'       => "planeacion_" . $i,
+        'n_group'       => "Propuesta 4",
 
         'suma'          => 0,
 
@@ -205,6 +209,7 @@ class AlternativasController extends Controller {
         'report_id'    => $rpt_id,
 
         'columna'       => "institucional_" . $i,
+        'n_group'       => "Propuesta 5",
 
         'suma'          => 0,
 
@@ -224,6 +229,7 @@ class AlternativasController extends Controller {
         'report_id'    => $rpt_id,
 
         'columna'       => "salud_" . $i,
+        'n_group'       => "Propuesta 6",
 
         'suma'          => 0,
 
@@ -243,6 +249,7 @@ class AlternativasController extends Controller {
         'report_id'    => $rpt_id,
 
         'columna'       => "legislacion_" . $i,
+        'n_group'       => "Propuesta 7",
 
         'suma'          => 0,
 
@@ -276,6 +283,7 @@ class AlternativasController extends Controller {
 
       $i++;
     }
+
 
     return redirect('rpt/' . $rpt_id);
 
@@ -370,11 +378,13 @@ class AlternativasController extends Controller {
 
       }
 
-        //Abrimos la vista
       $enc = DB::table('report_totales')
       ->where('report_id', $id)
       ->select('n_group')
       ->distinct()->get();
+
+
+        //Abrimos la vista
 
         //$bproject = DB::table('projects')->where('user_id',Auth::user()->id)->first();
       $breporte = DB::table('report')->where('id', $id)->first();
@@ -417,13 +427,12 @@ class AlternativasController extends Controller {
     }
 
       //eliminamos los totales anteriores del reporte
-    DB::table('report_totales')->where('report_id',$request->input('rpt_id'))->delete();
 
       //Cargamos los totales nuevos
     foreach($request->input('totales') as $key => $values) {
-
-      DB::table('report_totales')->insert([
-
+      DB::table('report_totales')
+      ->where('columna', $key)
+      ->update([
         'report_id'    => $request->input('rpt_id'),
 
         'columna'      => $key,
@@ -431,8 +440,9 @@ class AlternativasController extends Controller {
         'suma'         => $values['suma'],
 
         'porcentaje'   => $values['porcentaje'],
-
       ]);
+
+      
 
     }
 
@@ -466,9 +476,9 @@ class AlternativasController extends Controller {
 
     DB::table('grupos')->insert(
       ['rpt' => $request->input('rpt'), 
-       'letra' => $request->input('letra'),
-       'texto' => $request->input('name_g')
-     ]);return back();
+      'letra' => $request->input('letra'),
+      'texto' => $request->input('name_g')
+    ]);return back();
   }
 
   public function letrae($id,$letra,$e) {
@@ -478,5 +488,48 @@ class AlternativasController extends Controller {
     }
     return back();
   }
+
+  public function cambiot(Request $request) {
+    if ($request->input('propuesta')==1) {
+      $col='%politicas%';
+    }
+    if ($request->input('propuesta')==2) {
+      $col='%educacion%';
+    }
+    if ($request->input('propuesta')==3) {
+      $col='%investigacion%';
+    }
+    if ($request->input('propuesta')==4) {
+      $col='%planeacion%';
+    }
+    if ($request->input('propuesta')==5) {
+      $col='%institucional%';
+    }
+    if ($request->input('propuesta')==6) {
+      $col='%salud%';
+    }
+    if ($request->input('propuesta')==7) {
+      $col='%legislacion%';
+    }
+
+    $avalidar=DB::table('report_totales')->where('report_id',$request->input('rpt_id'))->get();
+    $remplazo=0;
+    foreach ($avalidar as $validado) {
+      if ($request->encabezado==$validado->n_group) {
+        $remplazo++;
+      }
+    }
+    if ($remplazo <1) {
+
+          $reporte_todos = DB::table('report_totales')->where('report_id',$request->input('rpt_id'))->where('columna', 'like', $col)->get();
+    foreach ($reporte_todos as $encontrado) {
+      DB::table('report_totales')
+      ->where('id', $encontrado->id)
+      ->update(['n_group' => $request->encabezado]);
+    }
+    }
+    return back();
+  }
+
 
 }

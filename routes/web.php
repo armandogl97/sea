@@ -26,6 +26,7 @@ Route::get('/rpt/{id}', 'AlternativasController@rptCreate'); //registrar los dat
 Route::get('/rpt/{id}/{letra}', 'AlternativasController@letra');
 Route::post('/rpt/{id}/{letra}/add', 'AlternativasController@letradd');
 Route::post('/rpt/{id}/{letra}/{e}', 'AlternativasController@letrae');
+Route::post('/cambiot', 'AlternativasController@cambiot');
 
 
 

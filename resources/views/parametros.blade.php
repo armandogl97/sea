@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container">
-  <form method="get" action="{{ url('/reporte') }}" id="formValidate">
+  <form method="get" action="{{ url('/reporte') }}" id="formValidate" onsubmit="return validaEnvio();">
     <input type="hidden" name="project_id" id="project_id" value="{{ $proyecto->id }}" />
     <div class="row justify-content-center">
       <h3>Selecciona las Políticas, Programas y Planes</h3>
@@ -34,42 +34,42 @@
     <div class="row">
 
       <div class="form-group" style="width: 13%; display:inline-block;border-right: 1px solid gray;display: none;" id="g1">
-        <label for="politicas" style="color: black;">POLÍTICAS:</label>
-        <input type="number" class="form-control limp" id="politicas" name="politicas" style="text-align: center;">
+        <label for="politicas" style="color: black;">Propuesta 1:</label>
+        <input type="number" class="form-control limp" id="politicas" name="politicas" style="text-align: center;" required min="1">
       </div>
 
       <div class="form-group" style="width: 17%; display:inline-block;border-right: 1px solid gray;display: none;" id="g2">
-        <label for="educacion" style="color: black">EDUCACIÓN-CAPACITACIÓN:</label>
-        <input type="number" class="form-control limp" id="educacion" name="educacion" style="text-align: center;">
+        <label for="educacion" style="color: black">Propuesta 2:</label>
+        <input type="number" class="form-control limp" id="educacion" name="educacion" style="text-align: center;" required min="1">
       </div>
 
       <div class="form-group" style="width: 13%; display:inline-block;border-right: 1px solid gray;display: none;" id="g3">
-        <label for="investigacion" style="color: black">INVESTIGACIÓN:</label>
-        <input type="number" class="form-control limp" id="investigacion" name="investigacion" style="text-align: center;">
+        <label for="investigacion" style="color: black">Propuesta 3:</label>
+        <input type="number" class="form-control limp" id="investigacion" name="investigacion" style="text-align: center;" required min="1">
       </div>
 
       <div class="form-group" style="width: 13%; display:inline-block;border-right: 1px solid gray;display: none;" id="g4">
-        <label for="planeacion" style="color: black">PLANEACIÓN:</label>
-        <input type="number" class="form-control limp" id="planeacion" name="planeacion" style="text-align: center;">
+        <label for="planeacion" style="color: black">Propuesta 4</label>
+        <input type="number" class="form-control limp" id="planeacion" name="planeacion" style="text-align: center;" required min="1">
       </div>
 
       <div class="form-group" style="width: 13%; display:inline-block;border-right: 1px solid gray;display: none;" id="g5">
-        <label for="institucional" style="color: black">INSTITUCIONAL:</label>
-        <input type="number" class="form-control limp" id="institucional" name="institucional" style="text-align: center;">
+        <label for="institucional" style="color: black">Propuesta 5:</label>
+        <input type="number" class="form-control limp" id="institucional" name="institucional" style="text-align: center;" required min="1">
       </div>
 
       <div class="form-group" style="width: 13%; display:inline-block;border-right: 1px solid gray;display: none;" id="g6">
-        <label for="salud" style="color: black">SALUD:</label>
-        <input type="number" class="form-control limp" id="salud" name="salud" style="text-align: center;">
+        <label for="salud" style="color: black">Propuesta 6:</label>
+        <input type="number" class="form-control limp" id="salud" name="salud" style="text-align: center;" required min="1">
       </div>
 
       <div class="form-group" style="width: 13%; display:inline-block;border-right: 1px solid gray;display: none;" id="g7">
-        <label for="legislacion" style="color: black">LEGISLACIÓN:</label>
-        <input type="number" class="form-control" id="legislacion" name="legislacion" style="text-align: center;">
+        <label for="legislacion" style="color: black">Propuesta 7:</label>
+        <input type="number" class="form-control" id="legislacion" name="legislacion" style="text-align: center;" required min="1">
       </div>
     </div>
     <div class="row justify-content-center">
-      <button id="gb" style="display: none;" class="btn btn-success btn-round" type="button" onclick="validaEnvio();">
+      <button id="gb" style="display: none;" class="btn btn-success btn-round" type="submit" >
      <i class="material-icons">add</i> CREAR TABLA DE ALTERNATIVAS</button>
     </div>
     
@@ -219,12 +219,9 @@
     });
 
     if(checkeados == 0) {
-
       alert('Seleccione mínimo un programa, plan o política.');
-      return;
+      return false;
     }
-
-
     $('#formValidate').submit();
   }
 

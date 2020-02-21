@@ -18,6 +18,14 @@ $alfabeto = array('A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P
       <i class="material-icons">delete</i>
     </button>
   </form>
+
+  <form style="display: hidden" method="post" action="{{ url('/cambiot') }}" id="cambiot">
+    @csrf
+    <input type="hidden" name="encabezado" id="encabezado" />
+    <input type="hidden" name="propuesta" id="propuesta" />
+    <input type="hidden" name="rpt_id" value="{{ $data->id }}" />
+  </form>
+
   <h3 style="text-align: center;">ALTERNATIVAS</h3>
 </div>
 <div class="wrapper">
@@ -31,31 +39,45 @@ $alfabeto = array('A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P
       <thead>
         <tr>
           <th rowspan="2" style="padding: 0; border-bottom: 1px solid #C2C2C2; border-right: 1px solid #C2C2C2;" class="text-center"></th>
-          <th colspan="{{ $data->politicas }}" style="padding: 0; border-bottom: 1px solid #C2C2C2; border-right: 1px solid #C2C2C2;" class="text-center">g1</th><!-- {{$enc[0]->n_group}}-->
-          <th colspan="{{ $data->educacion }}" style="padding: 0; border-bottom: 1px solid #C2C2C2; border-right: 1px solid #C2C2C2;" class="text-center">g2</th>
-          <th colspan="{{ $data->investigacion }}" style="padding: 0; border-bottom: 1px solid #C2C2C2; border-right: 1px solid #C2C2C2;" class="text-center">g3</th>
-          <th colspan="{{ $data->planeacion }}" style="padding: 0; border-bottom: 1px solid #C2C2C2; border-right: 1px solid #C2C2C2;" class="text-center">g4</th>
-          <th colspan="{{ $data->institucional }}" style="padding: 0; border-bottom: 1px solid #C2C2C2; border-right: 1px solid #C2C2C2;" class="text-center">g5</th>
-          <th colspan="{{ $data->salud }}" style="padding: 0; border-bottom: 1px solid #C2C2C2; border-right: 1px solid #C2C2C2;" class="text-center">g6</th>
-          <th colspan="{{ $data->legislacion }}" style="padding: 0; border-bottom: 1px solid #C2C2C2; border-right: 1px solid #C2C2C2;" class="text-center">g7</th>
+          @if($data->politicas >= 1)
+          <th colspan="{{ $data->politicas }}" style="padding: 0; border-bottom: 1px solid #C2C2C2; border-right: 1px solid #C2C2C2;" class="text-center"><a href="#" style="color: #3C4858" onclick="ct(1);">{{$enc[0]->n_group}}</a></th>
+          @endif
+          @if($data->educacion >= 1)
+          <th colspan="{{ $data->educacion }}" style="padding: 0; border-bottom: 1px solid #C2C2C2; border-right: 1px solid #C2C2C2;" class="text-center"><a href="#" style="color: #3C4858" onclick="ct(2);">{{$enc[1]->n_group}}</a></th>
+          @endif
+          @if($data->investigacion >= 1)
+          <th colspan="{{ $data->investigacion }}" style="padding: 0; border-bottom: 1px solid #C2C2C2; border-right: 1px solid #C2C2C2;" class="text-center"><a href="#" style="color: #3C4858" onclick="ct(3);">{{$enc[2]->n_group}}</a></th>
+          @endif
+          @if($data->planeacion >= 1)
+          <th colspan="{{ $data->planeacion }}" style="padding: 0; border-bottom: 1px solid #C2C2C2; border-right: 1px solid #C2C2C2;" class="text-center"><a href="#" style="color: #3C4858" onclick="ct(4);">{{$enc[3]->n_group}}</a></th>
+          @endif
+          @if($data->institucional >= 1)
+          <th colspan="{{ $data->institucional }}" style="padding: 0; border-bottom: 1px solid #C2C2C2; border-right: 1px solid #C2C2C2;" class="text-center"><a href="#" style="color: #3C4858" onclick="ct(5);">{{$enc[4]->n_group}}</a></th>
+          @endif
+          @if($data->salud >= 1)
+          <th colspan="{{ $data->salud }}" style="padding: 0; border-bottom: 1px solid #C2C2C2; border-right: 1px solid #C2C2C2;" class="text-center"><a href="#" style="color: #3C4858" onclick="ct(6);">{{$enc[5]->n_group}}</a></th>
+          @endif
+          @if($data->legislacion >= 1)
+          <th colspan="{{ $data->legislacion }}" style="padding: 0; border-bottom: 1px solid #C2C2C2; border-right: 1px solid #C2C2C2;" class="text-center"><a href="#" style="color: #3C4858" onclick="ct(7);">{{$enc[6]->n_group}}</a></th>
+          @endif
           <th colspan="2" rowspan="2" style="width:10%; padding: 0; border-bottom: 1px solid #C2C2C2;" class="text-center">LÍNEAS DE ACCIÓN CON MAYOR ATENCIÓN POR PARTE DE LAS ALTERNATIVAS</th>
         </tr>
         <tr>
           <?php $totalRows = 2;
 
-          if($data->politicas != 0) { $totalRows = $totalRows + $data->politicas; } else { $totalRows = $totalRows +1; }
+          if($data->politicas != 0) { $totalRows = $totalRows + $data->politicas; } else { $totalRows = $totalRows +0; }
 
-          if($data->educacion != 0) { $totalRows = $totalRows + $data->educacion; } else { $totalRows = $totalRows +1; }
+          if($data->educacion != 0) { $totalRows = $totalRows + $data->educacion; } else { $totalRows = $totalRows +0; }
 
-          if($data->investigacion != 0) { $totalRows = $totalRows + $data->investigacion; } else { $totalRows = $totalRows +1; }
+          if($data->investigacion != 0) { $totalRows = $totalRows + $data->investigacion; } else { $totalRows = $totalRows +0; }
 
-          if($data->planeacion != 0) { $totalRows = $totalRows + $data->planeacion; } else { $totalRows = $totalRows +1; }
+          if($data->planeacion != 0) { $totalRows = $totalRows + $data->planeacion; } else { $totalRows = $totalRows +0; }
 
-          if($data->institucional != 0) { $totalRows = $totalRows + $data->institucional; } else { $totalRows = $totalRows +1; }
+          if($data->institucional != 0) { $totalRows = $totalRows + $data->institucional; } else { $totalRows = $totalRows +0; }
 
-          if($data->salud != 0) { $totalRows = $totalRows + $data->salud; } else { $totalRows = $totalRows +1; }
+          if($data->salud != 0) { $totalRows = $totalRows + $data->salud; } else { $totalRows = $totalRows +0; }
 
-          if($data->legislacion != 0) { $totalRows = $totalRows + $data->legislacion; } else { $totalRows = $totalRows +1; }
+          if($data->legislacion != 0) { $totalRows = $totalRows + $data->legislacion; } else { $totalRows = $totalRows +0; }
 
           $divisionlinea=$data->politicas+$data->educacion+$data->investigacion+$data->planeacion+$data->institucional+$data->salud+$data->legislacion;
 
@@ -69,8 +91,6 @@ $alfabeto = array('A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P
                 <a style="color: #3C4858" href="{{url('/rpt/'.$data->id).'/'. $alfabeto[$j]}}"> <?php if($j >= count($alfabeto)) { $k++; echo $alfabeto[0] . $alfabeto[$k]; } else { echo $alfabeto[$j]; $j++; } ; ?> </a>
               </th>
             <?php } ?>
-          <?php } else { ?>
-            <th style="width:10%; padding: 0; border-bottom: 1px solid #C2C2C2; border-right: 1px solid #C2C2C2;" class="text-center"> &nbsp; </th>
           <?php } ?>
 
           <?php if($data->educacion != 0) { ?>
@@ -80,8 +100,6 @@ $alfabeto = array('A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P
                 <?php if($j >= count($alfabeto)) { $k++; echo $alfabeto[0] . $alfabeto[$k]; } else { echo $alfabeto[$j]; $j++; } ; ?> </a>
               </th>
             <?php } ?>
-          <?php } else { ?>
-            <th style="width:10%; padding: 0; border-bottom: 1px solid #C2C2C2; border-right: 1px solid #C2C2C2;" class="text-center"> &nbsp; </th>
           <?php } ?>
 
           <?php if($data->investigacion != 0) { ?>
@@ -91,8 +109,6 @@ $alfabeto = array('A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P
                 <?php if($j >= count($alfabeto)) { $k++; echo $alfabeto[0] . $alfabeto[$k]; } else { echo $alfabeto[$j]; $j++; } ; ?> </a>
               </th>
             <?php } ?>
-          <?php } else { ?>
-            <th style="width:10%; padding: 0; border-bottom: 1px solid #C2C2C2; border-right: 1px solid #C2C2C2;" class="text-center"> &nbsp; </th>
           <?php } ?>
 
           <?php if($data->planeacion != 0) { ?>
@@ -102,8 +118,6 @@ $alfabeto = array('A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P
                 <?php if($j >= count($alfabeto)) { $k++; echo $alfabeto[0] . $alfabeto[$k]; } else { echo $alfabeto[$j]; $j++; } ; ?> </a>
               </th>
             <?php } ?>
-          <?php } else { ?>
-            <th style="width:10%; padding: 0; border-bottom: 1px solid #C2C2C2; border-right: 1px solid #C2C2C2;" class="text-center"> &nbsp; </th>
           <?php } ?>
 
           <?php if($data->institucional != 0) { ?>
@@ -117,8 +131,6 @@ $alfabeto = array('A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P
                 } ; ?> </a>
               </th>
             <?php } ?>
-          <?php } else { ?>
-            <th style="width:10%; padding: 0; border-bottom: 1px solid #C2C2C2; border-right: 1px solid #C2C2C2;" class="text-center"> &nbsp; </th>
           <?php } ?>
 
           <?php if($data->salud != 0) { ?>
@@ -128,8 +140,6 @@ $alfabeto = array('A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P
                 <?php if($j >= count($alfabeto)) { $k++; echo $alfabeto[0] . $alfabeto[$k]; } else { echo $alfabeto[$j]; $j++; } ; ?> </a>
               </th>
             <?php } ?>
-          <?php } else { ?>
-            <th style="width:10%; padding: 0; border-bottom: 1px solid #C2C2C2; border-right: 1px solid #C2C2C2;" class="text-center"> &nbsp; </th>
           <?php } ?>
 
           <?php if($data->legislacion != 0) { ?>
@@ -139,8 +149,6 @@ $alfabeto = array('A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P
                 <?php if($j >= count($alfabeto)) { $k++; echo $alfabeto[0] . $alfabeto[$k]; } else { echo $alfabeto[$j]; $j++; } ; ?> </a>
               </th>
             <?php } ?>
-          <?php } else { ?>
-            <th style="width:10%; padding: 0; border-bottom: 1px solid #C2C2C2; border-right: 1px solid #C2C2C2;" class="text-center"> &nbsp; </th>
           <?php } ?>
           <input type="hidden" readonly name="total_lineas" value="<?php echo $totalRows-2; ?>" style="width:80%;" id="total_lineas"/>
         </tr>
@@ -170,8 +178,6 @@ $alfabeto = array('A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P
                     </select>
                   </td>
                 <?php } ?>
-              <?php } else { ?>
-                <td style="width:10%; padding: 0; border-bottom: 1px solid #C2C2C2; border-right: 1px solid #C2C2C2;" class="text-center"> &nbsp; </td>
               <?php } ?>
 
               <?php if($data->educacion != 0) { ?>
@@ -183,8 +189,6 @@ $alfabeto = array('A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P
                     </select>
                   </td>
                 <?php } ?>
-              <?php } else { ?>
-                <td style="width:10%; padding: 0; border-bottom: 1px solid #C2C2C2; border-right: 1px solid #C2C2C2;" class="text-center"> &nbsp; </td>
               <?php } ?>
 
               <?php if($data->investigacion != 0) { ?>
@@ -196,8 +200,6 @@ $alfabeto = array('A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P
                     </select>
                   </td>
                 <?php } ?>
-              <?php } else { ?>
-                <th style="width:10%; padding: 0; border-bottom: 1px solid #C2C2C2; border-right: 1px solid #C2C2C2;" class="text-center"> &nbsp; </th>
               <?php } ?>
 
               <?php if($data->planeacion != 0) { ?>
@@ -209,8 +211,6 @@ $alfabeto = array('A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P
                     </select>
                   </td>
                 <?php } ?>
-              <?php } else { ?>
-                <td style="width:10%; padding: 0; border-bottom: 1px solid #C2C2C2; border-right: 1px solid #C2C2C2;" class="text-center"> &nbsp; </td>
               <?php } ?>
 
               <?php if($data->institucional != 0) { ?>
@@ -222,8 +222,6 @@ $alfabeto = array('A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P
                     </select>
                   </td>
                 <?php } ?>
-              <?php } else { ?>
-                <td style="width:10%; padding: 0;border-right: 1px solid #C2C2C2; border-bottom: 1px solid #C2C2C2;" class="text-center"> &nbsp; </td>
               <?php } ?>
 
               <?php if($data->salud != 0) { ?>
@@ -235,8 +233,6 @@ $alfabeto = array('A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P
                     </select>
                   </td>
                 <?php } ?>
-              <?php } else { ?>
-                <td style="width:10%; padding: 0; border-bottom: 1px solid #C2C2C2; border-right: 1px solid #C2C2C2;" class="text-center"> &nbsp; </td>
               <?php } ?>
 
               <?php if($data->legislacion != 0) { ?>
@@ -248,8 +244,6 @@ $alfabeto = array('A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P
                     </select>
                   </td>
                 <?php } ?>
-              <?php } else { ?>
-                <td style="width:10%; padding: 0; border-bottom: 1px solid #C2C2C2; border-right: 1px solid #C2C2C2;" class="text-center"> &nbsp; </td>
               <?php } ?>
 
               <td style="padding-top:0px; font-weight: bold;padding: 10; border-bottom: 1px solid #C2C2C2;  border-right: 1px solid #C2C2C2; <?php if(in_array($childs->porcentaje,$maximos) && $pintados <= 9) { echo 'background:#fccac7'; $pintados++;}?>" class="text-center">
@@ -286,8 +280,6 @@ $alfabeto = array('A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P
               </th>
 
             <?php } ?>
-          <?php } else { ?>
-            <td style="width:10%; padding: 0; border-bottom: 1px solid #C2C2C2; border-right: 1px solid #C2C2C2;" class="text-center"> &nbsp; </td>
           <?php } ?>
 
           <?php if($data->educacion != 0) { ?>
@@ -297,8 +289,6 @@ $alfabeto = array('A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P
                 <input type="hidden" readonly name="totales[educacion_<?php echo $i;?>][suma]" value="<?php echo $totales['educacion_' . $i]['suma']; ?>" style="width:80%;" id="educacion_<?php echo $i;?>_sum_txt"/>
               </th>
             <?php } ?>
-          <?php } else { ?>
-            <td style="width:10%; padding: 0; border-bottom: 1px solid #C2C2C2; border-right: 1px solid #C2C2C2;" class="text-center"> &nbsp; </td>
           <?php } ?>
 
           <?php if($data->investigacion != 0) { ?>
@@ -308,8 +298,6 @@ $alfabeto = array('A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P
                 <input type="hidden" readonly name="totales[investigacion_<?php echo $i;?>][suma]" value="<?php echo $totales['investigacion_' . $i]['suma']; ?>" style="width:80%;" id="investigacion_<?php echo $i;?>_sum_txt"/>
               </th>
             <?php } ?>
-          <?php } else { ?>
-            <td style="width:10%; padding: 0; border-bottom: 1px solid #C2C2C2; border-right: 1px solid #C2C2C2;" class="text-center"> &nbsp; </td>
           <?php } ?>
 
           <?php if($data->planeacion != 0) { ?>
@@ -319,8 +307,6 @@ $alfabeto = array('A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P
                 <input type="hidden" readonly name="totales[planeacion_<?php echo $i;?>][suma]" value="<?php echo $totales['planeacion_' . $i]['suma']; ?>" style="width:80%;" id="planeacion_<?php echo $i;?>_sum_txt"/>
               </th>
             <?php } ?>
-          <?php } else { ?>
-            <td style="width:10%; padding: 0; border-bottom: 1px solid #C2C2C2; border-right: 1px solid #C2C2C2;" class="text-center"> &nbsp; </td>
           <?php } ?>
 
           <?php if($data->institucional != 0) { ?>
@@ -330,8 +316,6 @@ $alfabeto = array('A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P
                 <input type="hidden" readonly name="totales[institucional_<?php echo $i;?>][suma]" value="<?php echo $totales['institucional_' . $i]['suma']; ?>" style="width:80%;" id="institucional_<?php echo $i;?>_sum_txt"/>
               </th>
             <?php } ?>
-          <?php } else { ?>
-            <td style="width:10%; padding: 0; border-bottom: 1px solid #C2C2C2; border-right: 1px solid #C2C2C2;" class="text-center"> &nbsp; </td>
           <?php } ?>
 
           <?php if($data->salud != 0) { ?>
@@ -341,8 +325,6 @@ $alfabeto = array('A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P
                 <input type="hidden" readonly name="totales[salud_<?php echo $i;?>][suma]" value="<?php echo $totales['salud_' . $i]['suma']; ?>" style="width:80%;" id="salud_<?php echo $i;?>_sum_txt"/>
               </th>
             <?php } ?>
-          <?php } else { ?>
-            <td style="width:10%; padding: 0; border-bottom: 1px solid #C2C2C2; border-right: 1px solid #C2C2C2;" class="text-center"> &nbsp; </td>
           <?php } ?>
 
           <?php if($data->legislacion != 0) { ?>
@@ -352,8 +334,6 @@ $alfabeto = array('A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P
                 <input type="hidden" readonly name="totales[legislacion_<?php echo $i;?>][suma]" value="<?php echo $totales['legislacion_' . $i]['suma']; ?>" style="width:80%;" id="legislacion_<?php echo $i;?>_sum_txt"/>
               </th>
             <?php } ?>
-          <?php } else { ?>
-            <td style="width:10%; padding: 0; border-bottom: 1px solid #C2C2C2; border-right: 1px solid #C2C2C2;" class="text-center"> &nbsp; </td>
           <?php } ?>
 
           <td rowspan="2" colspan="2" style=" border-right: 1px solid #C2C2C2;" class="text-center"></td>
@@ -368,8 +348,6 @@ $alfabeto = array('A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P
                 <input type="hidden" readonly name="totales[politicas_<?php echo $i;?>][porcentaje]" value="<?php echo $totales['politicas_' . $i]['porcentaje']; ?>" style="width:80%;" id="politicas_<?php echo $i;?>_porc_txt"/>
               </th>
             <?php } ?>
-          <?php } else { ?>
-            <td style="width:10%; padding: 0; border-bottom: 1px solid #C2C2C2; border-right: 1px solid #C2C2C2;" class="text-center"> &nbsp; </td>
           <?php } ?>
 
           <?php if($data->educacion != 0) { ?>
@@ -379,8 +357,6 @@ $alfabeto = array('A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P
                 <input type="hidden" readonly name="totales[educacion_<?php echo $i;?>][porcentaje]" value="<?php echo $totales['educacion_' . $i]['porcentaje']; ?>" style="width:80%;" id="educacion_<?php echo $i;?>_porc_txt"/>
               </th>
             <?php } ?>
-          <?php } else { ?>
-            <td style="width:10%; padding: 0; border-bottom: 1px solid #C2C2C2; border-right: 1px solid #C2C2C2;" class="text-center"> &nbsp; </td>
           <?php } ?>
 
           <?php if($data->investigacion != 0) { ?>
@@ -390,8 +366,6 @@ $alfabeto = array('A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P
                 <input type="hidden" readonly name="totales[investigacion_<?php echo $i;?>][porcentaje]" value="<?php echo $totales['investigacion_' . $i]['porcentaje']; ?>" style="width:80%;" id="investigacion_<?php echo $i;?>_porc_txt"/>
               </th>
             <?php } ?>
-          <?php } else { ?>
-            <td style="width:10%; padding: 0; border-bottom: 1px solid #C2C2C2; border-right: 1px solid #C2C2C2;" class="text-center"> &nbsp; </td>
           <?php } ?>
 
           <?php if($data->planeacion != 0) { ?>
@@ -401,8 +375,6 @@ $alfabeto = array('A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P
                 <input type="hidden" readonly name="totales[planeacion_<?php echo $i;?>][porcentaje]" value="<?php echo $totales['planeacion_' . $i]['porcentaje']; ?>" style="width:80%;" id="planeacion_<?php echo $i;?>_porc_txt"/>
               </th>
             <?php } ?>
-          <?php } else { ?>
-            <td style="width:10%; padding: 0; border-bottom: 1px solid #C2C2C2; border-right: 1px solid #C2C2C2;" class="text-center"> &nbsp; </td>
           <?php } ?>
 
           <?php if($data->institucional != 0) { ?>
@@ -412,8 +384,6 @@ $alfabeto = array('A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P
                 <input type="hidden" readonly name="totales[institucional_<?php echo $i;?>][porcentaje]" value="<?php echo $totales['institucional_' . $i]['porcentaje']; ?>" style="width:80%;" id="institucional_<?php echo $i;?>_porc_txt"/>
               </th>
             <?php } ?>
-          <?php } else { ?>
-            <td style="width:10%; padding: 0; border-bottom: 1px solid #C2C2C2; border-right: 1px solid #C2C2C2;" class="text-center"> &nbsp; </td>
           <?php } ?>
 
           <?php if($data->salud != 0) { ?>
@@ -423,8 +393,6 @@ $alfabeto = array('A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P
                 <input type="hidden" readonly name="totales[salud_<?php echo $i;?>][porcentaje]" value="<?php echo $totales['salud_' . $i]['porcentaje']; ?>" style="width:80%;" id="salud_<?php echo $i;?>_porc_txt"/>
               </th>
             <?php } ?>
-          <?php } else { ?>
-            <td style="width:10%; padding: 0; border-bottom: 1px solid #C2C2C2; border-right: 1px solid #C2C2C2;" class="text-center"> &nbsp; </td>
           <?php } ?>
 
           <?php if($data->legislacion != 0) { ?>
@@ -434,8 +402,6 @@ $alfabeto = array('A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P
                 <input type="hidden" readonly name="totales[legislacion_<?php echo $i;?>][porcentaje]" value="<?php echo $totales['legislacion_' . $i]['porcentaje']; ?>" style="width:80%;" id="legislacion_<?php echo $i;?>_porc_txt"/>
               </th>
             <?php } ?>
-          <?php } else { ?>
-            <td style="width:10%; padding: 0; border-bottom: 1px solid #C2C2C2; border-right: 1px solid #C2C2C2;" class="text-center"> &nbsp; </td>
           <?php } ?>
 
         </tr>
@@ -546,7 +512,23 @@ $alfabeto = array('A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P
   </script>
 
 
-  <script type="text/javascript">
+  <script>
+    function ct($i){
+      $nomp=prompt("Nombre de la propuesta: ");
+
+      $("#propuesta").attr("value",$i);
+      document.getElementById('encabezado').value=$nomp;
+
+      if ($nomp == null) {
+      }else if ($nomp=="") {
+      }else{
+        $('#cambiot').submit();
+      }
+
+    }
+
+
+
     
   </script>
   @endsection
