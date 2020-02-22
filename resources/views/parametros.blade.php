@@ -2,7 +2,9 @@
 
 @section('content')
 <div class="container">
+
   <form method="get" action="{{ url('/reporte') }}" id="formValidate" onsubmit="return validaEnvio();">
+
     <input type="hidden" name="project_id" id="project_id" value="{{ $proyecto->id }}" />
     <div class="row justify-content-center">
       <h3>Selecciona las Políticas, Programas y Planes</h3>
@@ -35,41 +37,41 @@
 
       <div class="form-group" style="width: 13%; display:inline-block;border-right: 1px solid gray;display: none;" id="g1">
         <label for="politicas" style="color: black;">Propuesta 1:</label>
-        <input type="number" class="form-control limp" id="politicas" name="politicas" style="text-align: center;" required min="1">
+        <input type="number" class="form-control limp" id="politicas" name="politicas" style="text-align: center;" min="1">
       </div>
 
       <div class="form-group" style="width: 17%; display:inline-block;border-right: 1px solid gray;display: none;" id="g2">
         <label for="educacion" style="color: black">Propuesta 2:</label>
-        <input type="number" class="form-control limp" id="educacion" name="educacion" style="text-align: center;" required min="1">
+        <input type="number" class="form-control limp" id="educacion" name="educacion" style="text-align: center;" min="1">
       </div>
 
       <div class="form-group" style="width: 13%; display:inline-block;border-right: 1px solid gray;display: none;" id="g3">
         <label for="investigacion" style="color: black">Propuesta 3:</label>
-        <input type="number" class="form-control limp" id="investigacion" name="investigacion" style="text-align: center;" required min="1">
+        <input type="number" class="form-control limp" id="investigacion" name="investigacion" style="text-align: center;" min="1">
       </div>
 
       <div class="form-group" style="width: 13%; display:inline-block;border-right: 1px solid gray;display: none;" id="g4">
         <label for="planeacion" style="color: black">Propuesta 4</label>
-        <input type="number" class="form-control limp" id="planeacion" name="planeacion" style="text-align: center;" required min="1">
+        <input type="number" class="form-control limp" id="planeacion" name="planeacion" style="text-align: center;" min="1">
       </div>
 
       <div class="form-group" style="width: 13%; display:inline-block;border-right: 1px solid gray;display: none;" id="g5">
         <label for="institucional" style="color: black">Propuesta 5:</label>
-        <input type="number" class="form-control limp" id="institucional" name="institucional" style="text-align: center;" required min="1">
+        <input type="number" class="form-control limp" id="institucional" name="institucional" style="text-align: center;" min="1">
       </div>
 
       <div class="form-group" style="width: 13%; display:inline-block;border-right: 1px solid gray;display: none;" id="g6">
         <label for="salud" style="color: black">Propuesta 6:</label>
-        <input type="number" class="form-control limp" id="salud" name="salud" style="text-align: center;" required min="1">
+        <input type="number" class="form-control limp" id="salud" name="salud" style="text-align: center;" min="1">
       </div>
 
       <div class="form-group" style="width: 13%; display:inline-block;border-right: 1px solid gray;display: none;" id="g7">
         <label for="legislacion" style="color: black">Propuesta 7:</label>
-        <input type="number" class="form-control" id="legislacion" name="legislacion" style="text-align: center;" required min="1">
+        <input type="number" class="form-control" id="legislacion" name="legislacion" style="text-align: center;" min="1">
       </div>
     </div>
     <div class="row justify-content-center">
-      <button id="gb" style="display: none;" class="btn btn-success btn-round" type="submit" >
+     <button id="gb" style="display: none;" class="btn btn-success btn-round" type="submit" >
      <i class="material-icons">add</i> CREAR TABLA DE ALTERNATIVAS</button>
     </div>
     
@@ -101,6 +103,7 @@
     }
     if (np.value==1) {
       document.getElementById('g1').style.display = 'inline';
+      $('#politicas').prop('required', true);
       document.getElementById('g2').style.display = 'none';
       document.getElementById('g3').style.display = 'none';
       document.getElementById('g4').style.display = 'none';
@@ -119,6 +122,8 @@
     if (np.value==2) {
       document.getElementById('g1').style.display = 'inline';
       document.getElementById('g2').style.display = 'inline';
+      $('#politicas').prop('required', true);
+      $('#educacion').prop('required', true);
       document.getElementById('g3').style.display = 'none';
       document.getElementById('g4').style.display = 'none';
       document.getElementById('g5').style.display = 'none';
@@ -137,6 +142,9 @@
       document.getElementById('g1').style.display = 'inline';
       document.getElementById('g2').style.display = 'inline';
       document.getElementById('g3').style.display = 'inline';
+      $('#politicas').prop('required', true);
+      $('#educacion').prop('required', true);
+      $('#investigacion').prop('required', true);
       document.getElementById('g4').style.display = 'none';
       document.getElementById('g5').style.display = 'none';
       document.getElementById('g6').style.display = 'none';
@@ -153,6 +161,10 @@
       document.getElementById('g2').style.display = 'inline';
       document.getElementById('g3').style.display = 'inline';
       document.getElementById('g4').style.display = 'inline';
+      $('#politicas').prop('required', true);
+      $('#educacion').prop('required', true);
+      $('#investigacion').prop('required', true);
+      $('#planeacion').prop('required', true);
       document.getElementById('g5').style.display = 'none';
       document.getElementById('g6').style.display = 'none';
       document.getElementById('g7').style.display = 'none';
@@ -168,6 +180,11 @@
       document.getElementById('g3').style.display = 'inline';
       document.getElementById('g4').style.display = 'inline';
       document.getElementById('g5').style.display = 'inline';
+      $('#politicas').prop('required', true);
+      $('#educacion').prop('required', true);
+      $('#investigacion').prop('required', true);
+      $('#planeacion').prop('required', true);
+      $('#institucional').prop('required', true);
       document.getElementById('g6').style.display = 'none';
       document.getElementById('g7').style.display = 'none';
       document.getElementById('g0').style.display = 'inline';
@@ -182,6 +199,12 @@
       document.getElementById('g4').style.display = 'inline';
       document.getElementById('g5').style.display = 'inline';
       document.getElementById('g6').style.display = 'inline';
+      $('#politicas').prop('required', true);
+      $('#educacion').prop('required', true);
+      $('#investigacion').prop('required', true);
+      $('#planeacion').prop('required', true);
+      $('#institucional').prop('required', true);
+      $('#salud').prop('required', true);
       document.getElementById('g7').style.display = 'none';
       document.getElementById('g0').style.display = 'inline';
       document.getElementById('gb').style.display = 'inline';
@@ -197,33 +220,30 @@
       document.getElementById('g7').style.display = 'inline';
       document.getElementById('g0').style.display = 'inline';
       document.getElementById('gb').style.display = 'inline';
+      $('#politicas').prop('required', true);
+      $('#educacion').prop('required', true);
+      $('#investigacion').prop('required', true);
+      $('#planeacion').prop('required', true);
+      $('#institucional').prop('required', true);
+      $('#salud').prop('required', true);
+      $('#legislacion').prop('required', true);
     }
   }
 </script>
 <script>
-
   var checkeados = 0;
-
   var requeridos = 0;
-
   function validaEnvio() {
-
     $('.checkeds').each(function(){
-
       if($(this).is(':checked')) {
         checkeados ++;
       } else {
-
       }
-
     });
-
     if(checkeados == 0) {
       alert('Seleccione mínimo un programa, plan o política.');
       return false;
-    }
-    $('#formValidate').submit();
+    }else{return true;}
   }
-
-</script>
+</script
 @endsection
