@@ -60,6 +60,46 @@ $alfabeto = array('A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P
           @if($data->legislacion >= 1)
           <th colspan="{{ $data->legislacion }}" style="padding: 0; border-bottom: 1px solid #C2C2C2; border-right: 1px solid #C2C2C2;" class="text-center"><a href="#" style="color: #3C4858" onclick="ct(7);">{{$enc[6]->n_group}}</a></th>
           @endif
+          @if($data->p1 >= 1)
+          <th colspan="{{ $data->p1 }}" style="padding: 0; border-bottom: 1px solid #C2C2C2; border-right: 1px solid #C2C2C2;" class="text-center"><a href="#" style="color: #3C4858" onclick="ct(8);">{{$enc[7]->n_group}}</a></th>
+          @endif
+          @if($data->p2 >= 1)
+          <th colspan="{{ $data->p2 }}" style="padding: 0; border-bottom: 1px solid #C2C2C2; border-right: 1px solid #C2C2C2;" class="text-center"><a href="#" style="color: #3C4858" onclick="ct(9);">{{$enc[8]->n_group}}</a></th>
+          @endif
+          @if($data->p3 >= 1)
+          <th colspan="{{ $data->p3 }}" style="padding: 0; border-bottom: 1px solid #C2C2C2; border-right: 1px solid #C2C2C2;" class="text-center"><a href="#" style="color: #3C4858" onclick="ct(10);">{{$enc[9]->n_group}}</a></th>
+          @endif
+          @if($data->p4 >= 1)
+          <th colspan="{{ $data->p4 }}" style="padding: 0; border-bottom: 1px solid #C2C2C2; border-right: 1px solid #C2C2C2;" class="text-center"><a href="#" style="color: #3C4858" onclick="ct(11);">{{$enc[10]->n_group}}</a></th>
+          @endif
+          @if($data->p5 >= 1)
+          <th colspan="{{ $data->p5 }}" style="padding: 0; border-bottom: 1px solid #C2C2C2; border-right: 1px solid #C2C2C2;" class="text-center"><a href="#" style="color: #3C4858" onclick="ct(12);">{{$enc[11]->n_group}}</a></th>
+          @endif
+          @if($data->p6 >= 1)
+          <th colspan="{{ $data->p6 }}" style="padding: 0; border-bottom: 1px solid #C2C2C2; border-right: 1px solid #C2C2C2;" class="text-center"><a href="#" style="color: #3C4858" onclick="ct(13);">{{$enc[12]->n_group}}</a></th>
+          @endif
+          @if($data->p7 >= 1)
+          <th colspan="{{ $data->p7 }}" style="padding: 0; border-bottom: 1px solid #C2C2C2; border-right: 1px solid #C2C2C2;" class="text-center"><a href="#" style="color: #3C4858" onclick="ct(14);">{{$enc[13]->n_group}}</a></th>
+          @endif
+          @if($data->p8 >= 1)
+          <th colspan="{{ $data->p8 }}" style="padding: 0; border-bottom: 1px solid #C2C2C2; border-right: 1px solid #C2C2C2;" class="text-center"><a href="#" style="color: #3C4858" onclick="ct(15);">{{$enc[14]->n_group}}</a></th>
+          @endif
+          @if($data->p9 >= 1)
+          <th colspan="{{ $data->p9 }}" style="padding: 0; border-bottom: 1px solid #C2C2C2; border-right: 1px solid #C2C2C2;" class="text-center"><a href="#" style="color: #3C4858" onclick="ct(16);">{{$enc[15]->n_group}}</a></th>
+          @endif
+          @if($data->p10 >= 1)
+          <th colspan="{{ $data->p10 }}" style="padding: 0; border-bottom: 1px solid #C2C2C2; border-right: 1px solid #C2C2C2;" class="text-center"><a href="#" style="color: #3C4858" onclick="ct(17);">{{$enc[16]->n_group}}</a></th>
+          @endif
+          @if($data->p11 >= 1)
+          <th colspan="{{ $data->p11 }}" style="padding: 0; border-bottom: 1px solid #C2C2C2; border-right: 1px solid #C2C2C2;" class="text-center"><a href="#" style="color: #3C4858" onclick="ct(18);">{{$enc[17]->n_group}}</a></th>
+          @endif
+          @if($data->p12 >= 1)
+          <th colspan="{{ $data->p12 }}" style="padding: 0; border-bottom: 1px solid #C2C2C2; border-right: 1px solid #C2C2C2;" class="text-center"><a href="#" style="color: #3C4858" onclick="ct(19);">{{$enc[18]->n_group}}</a></th>
+          @endif
+          @if($data->p13 >= 1)
+          <th colspan="{{ $data->p13 }}" style="padding: 0; border-bottom: 1px solid #C2C2C2; border-right: 1px solid #C2C2C2;" class="text-center"><a href="#" style="color: #3C4858" onclick="ct(20);">{{$enc[19]->n_group}}</a></th>
+          @endif
+
           <th colspan="2" rowspan="2" style="width:10%; padding: 0; border-bottom: 1px solid #C2C2C2;" class="text-center">LÍNEAS DE ACCIÓN CON MAYOR ATENCIÓN POR PARTE DE LAS ALTERNATIVAS</th>
         </tr>
         <tr>
@@ -78,8 +118,21 @@ $alfabeto = array('A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P
           if($data->salud != 0) { $totalRows = $totalRows + $data->salud; } else { $totalRows = $totalRows +0; }
 
           if($data->legislacion != 0) { $totalRows = $totalRows + $data->legislacion; } else { $totalRows = $totalRows +0; }
+          if($data->p1 != 0) { $totalRows = $totalRows + $data->p1; } else { $totalRows = $totalRows +0; }
+          if($data->p2 != 0) { $totalRows = $totalRows + $data->p2; } else { $totalRows = $totalRows +0; }
+          if($data->p3 != 0) { $totalRows = $totalRows + $data->p3; } else { $totalRows = $totalRows +0; } 
+          if($data->p4 != 0) { $totalRows = $totalRows + $data->p4; } else { $totalRows = $totalRows +0; }
+          if($data->p5 != 0) { $totalRows = $totalRows + $data->p5; } else { $totalRows = $totalRows +0; } 
+          if($data->p6 != 0) { $totalRows = $totalRows + $data->p6; } else { $totalRows = $totalRows +0; }  
+          if($data->p7 != 0) { $totalRows = $totalRows + $data->p7; } else { $totalRows = $totalRows +0; }
+          if($data->p8 != 0) { $totalRows = $totalRows + $data->p8; } else { $totalRows = $totalRows +0; }
+          if($data->p9 != 0) { $totalRows = $totalRows + $data->p9; } else { $totalRows = $totalRows +0; }
+          if($data->p10 != 0) { $totalRows = $totalRows + $data->p10; } else { $totalRows = $totalRows +0; }
+          if($data->p11 != 0) { $totalRows = $totalRows + $data->p11; } else { $totalRows = $totalRows +0; }
+          if($data->p12 != 0) { $totalRows = $totalRows + $data->p12; } else { $totalRows = $totalRows +0; }
+          if($data->p13 != 0) { $totalRows = $totalRows + $data->p13; } else { $totalRows = $totalRows +0; }
 
-          $divisionlinea=$data->politicas+$data->educacion+$data->investigacion+$data->planeacion+$data->institucional+$data->salud+$data->legislacion;
+          $divisionlinea=$data->politicas+$data->educacion+$data->investigacion+$data->planeacion+$data->institucional+$data->salud+$data->legislacion+$data->p1+$data->p2+$data->p3+$data->p4+$data->p5+$data->p6+$data->p7+$data->p8+$data->p9+$data->p10+$data->p11+$data->p12+$data->p13;
 
           ?>
 
@@ -144,6 +197,110 @@ $alfabeto = array('A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P
 
           <?php if($data->legislacion != 0) { ?>
             <?php for($i =0; $i < $data->legislacion; $i++) { ?>
+              <th style="padding: 0; border-right: 1px solid #C2C2C2; border-bottom: 1px solid #C2C2C2;" class="text-center">
+                <a style="color: #3C4858" href="{{url('/rpt/'.$data->id).'/'. $alfabeto[$j]}}">
+                <?php if($j >= count($alfabeto)) { $k++; echo $alfabeto[0] . $alfabeto[$k]; } else { echo $alfabeto[$j]; $j++; } ; ?> </a>
+              </th>
+            <?php } ?>
+          <?php } ?>
+          <?php if($data->p1 != 0) { ?>
+            <?php for($i =0; $i < $data->p1; $i++) { ?>
+              <th style="padding: 0; border-right: 1px solid #C2C2C2; border-bottom: 1px solid #C2C2C2;" class="text-center">
+                <a style="color: #3C4858" href="{{url('/rpt/'.$data->id).'/'. $alfabeto[$j]}}">
+                <?php if($j >= count($alfabeto)) { $k++; echo $alfabeto[0] . $alfabeto[$k]; } else { echo $alfabeto[$j]; $j++; } ; ?> </a>
+              </th>
+            <?php } ?>
+          <?php } ?>
+          <?php if($data->p2 != 0) { ?>
+            <?php for($i =0; $i < $data->p2; $i++) { ?>
+              <th style="padding: 0; border-right: 1px solid #C2C2C2; border-bottom: 1px solid #C2C2C2;" class="text-center">
+                <a style="color: #3C4858" href="{{url('/rpt/'.$data->id).'/'. $alfabeto[$j]}}">
+                <?php if($j >= count($alfabeto)) { $k++; echo $alfabeto[0] . $alfabeto[$k]; } else { echo $alfabeto[$j]; $j++; } ; ?> </a>
+              </th>
+            <?php } ?>
+          <?php } ?>
+          <?php if($data->p3 != 0) { ?>
+            <?php for($i =0; $i < $data->p3; $i++) { ?>
+              <th style="padding: 0; border-right: 1px solid #C2C2C2; border-bottom: 1px solid #C2C2C2;" class="text-center">
+                <a style="color: #3C4858" href="{{url('/rpt/'.$data->id).'/'. $alfabeto[$j]}}">
+                <?php if($j >= count($alfabeto)) { $k++; echo $alfabeto[0] . $alfabeto[$k]; } else { echo $alfabeto[$j]; $j++; } ; ?> </a>
+              </th>
+            <?php } ?>
+          <?php } ?>
+          <?php if($data->p4 != 0) { ?>
+            <?php for($i =0; $i < $data->p4; $i++) { ?>
+              <th style="padding: 0; border-right: 1px solid #C2C2C2; border-bottom: 1px solid #C2C2C2;" class="text-center">
+                <a style="color: #3C4858" href="{{url('/rpt/'.$data->id).'/'. $alfabeto[$j]}}">
+                <?php if($j >= count($alfabeto)) { $k++; echo $alfabeto[0] . $alfabeto[$k]; } else { echo $alfabeto[$j]; $j++; } ; ?> </a>
+              </th>
+            <?php } ?>
+          <?php } ?>
+          <?php if($data->p5 != 0) { ?>
+            <?php for($i =0; $i < $data->p5; $i++) { ?>
+              <th style="padding: 0; border-right: 1px solid #C2C2C2; border-bottom: 1px solid #C2C2C2;" class="text-center">
+                <a style="color: #3C4858" href="{{url('/rpt/'.$data->id).'/'. $alfabeto[$j]}}">
+                <?php if($j >= count($alfabeto)) { $k++; echo $alfabeto[0] . $alfabeto[$k]; } else { echo $alfabeto[$j]; $j++; } ; ?> </a>
+              </th>
+            <?php } ?>
+          <?php } ?>
+          <?php if($data->p6 != 0) { ?>
+            <?php for($i =0; $i < $data->p6; $i++) { ?>
+              <th style="padding: 0; border-right: 1px solid #C2C2C2; border-bottom: 1px solid #C2C2C2;" class="text-center">
+                <a style="color: #3C4858" href="{{url('/rpt/'.$data->id).'/'. $alfabeto[$j]}}">
+                <?php if($j >= count($alfabeto)) { $k++; echo $alfabeto[0] . $alfabeto[$k]; } else { echo $alfabeto[$j]; $j++; } ; ?> </a>
+              </th>
+            <?php } ?>
+          <?php } ?>
+          <?php if($data->p7 != 0) { ?>
+            <?php for($i =0; $i < $data->p7; $i++) { ?>
+              <th style="padding: 0; border-right: 1px solid #C2C2C2; border-bottom: 1px solid #C2C2C2;" class="text-center">
+                <a style="color: #3C4858" href="{{url('/rpt/'.$data->id).'/'. $alfabeto[$j]}}">
+                <?php if($j >= count($alfabeto)) { $k++; echo $alfabeto[0] . $alfabeto[$k]; } else { echo $alfabeto[$j]; $j++; } ; ?> </a>
+              </th>
+            <?php } ?>
+          <?php } ?>
+          <?php if($data->p8 != 0) { ?>
+            <?php for($i =0; $i < $data->p8; $i++) { ?>
+              <th style="padding: 0; border-right: 1px solid #C2C2C2; border-bottom: 1px solid #C2C2C2;" class="text-center">
+                <a style="color: #3C4858" href="{{url('/rpt/'.$data->id).'/'. $alfabeto[$j]}}">
+                <?php if($j >= count($alfabeto)) { $k++; echo $alfabeto[0] . $alfabeto[$k]; } else { echo $alfabeto[$j]; $j++; } ; ?> </a>
+              </th>
+            <?php } ?>
+          <?php } ?>
+          <?php if($data->p9 != 0) { ?>
+            <?php for($i =0; $i < $data->p9; $i++) { ?>
+              <th style="padding: 0; border-right: 1px solid #C2C2C2; border-bottom: 1px solid #C2C2C2;" class="text-center">
+                <a style="color: #3C4858" href="{{url('/rpt/'.$data->id).'/'. $alfabeto[$j]}}">
+                <?php if($j >= count($alfabeto)) { $k++; echo $alfabeto[0] . $alfabeto[$k]; } else { echo $alfabeto[$j]; $j++; } ; ?> </a>
+              </th>
+            <?php } ?>
+          <?php } ?>
+          <?php if($data->p10 != 0) { ?>
+            <?php for($i =0; $i < $data->p10; $i++) { ?>
+              <th style="padding: 0; border-right: 1px solid #C2C2C2; border-bottom: 1px solid #C2C2C2;" class="text-center">
+                <a style="color: #3C4858" href="{{url('/rpt/'.$data->id).'/'. $alfabeto[$j]}}">
+                <?php if($j >= count($alfabeto)) { $k++; echo $alfabeto[0] . $alfabeto[$k]; } else { echo $alfabeto[$j]; $j++; } ; ?> </a>
+              </th>
+            <?php } ?>
+          <?php } ?>
+          <?php if($data->p11 != 0) { ?>
+            <?php for($i =0; $i < $data->p11; $i++) { ?>
+              <th style="padding: 0; border-right: 1px solid #C2C2C2; border-bottom: 1px solid #C2C2C2;" class="text-center">
+                <a style="color: #3C4858" href="{{url('/rpt/'.$data->id).'/'. $alfabeto[$j]}}">
+                <?php if($j >= count($alfabeto)) { $k++; echo $alfabeto[0] . $alfabeto[$k]; } else { echo $alfabeto[$j]; $j++; } ; ?> </a>
+              </th>
+            <?php } ?>
+          <?php } ?>
+          <?php if($data->p12 != 0) { ?>
+            <?php for($i =0; $i < $data->p12; $i++) { ?>
+              <th style="padding: 0; border-right: 1px solid #C2C2C2; border-bottom: 1px solid #C2C2C2;" class="text-center">
+                <a style="color: #3C4858" href="{{url('/rpt/'.$data->id).'/'. $alfabeto[$j]}}">
+                <?php if($j >= count($alfabeto)) { $k++; echo $alfabeto[0] . $alfabeto[$k]; } else { echo $alfabeto[$j]; $j++; } ; ?> </a>
+              </th>
+            <?php } ?>
+          <?php } ?>
+          <?php if($data->p13 != 0) { ?>
+            <?php for($i =0; $i < $data->p13; $i++) { ?>
               <th style="padding: 0; border-right: 1px solid #C2C2C2; border-bottom: 1px solid #C2C2C2;" class="text-center">
                 <a style="color: #3C4858" href="{{url('/rpt/'.$data->id).'/'. $alfabeto[$j]}}">
                 <?php if($j >= count($alfabeto)) { $k++; echo $alfabeto[0] . $alfabeto[$k]; } else { echo $alfabeto[$j]; $j++; } ; ?> </a>
@@ -246,6 +403,137 @@ $alfabeto = array('A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P
                 <?php } ?>
               <?php } ?>
 
+              <?php if($data->p1 != 0) { ?>
+                <?php for($i =0; $i < $data->p1; $i++) { ?>
+                  <td class="text-center" style="border-bottom: 1px solid #C2C2C2; border-right: 1px solid #C2C2C2;padding: 10">
+                    <select name="values[<?php echo $childs->id; ?>][p1_<?php echo $i; ?>]" value="<?php echo $childs->{'p1_' .$i};?>" style="" class="variables_<?php echo $childs->id;?> p1_<?php echo $i;?> cyel" onchange="sumaUnos(<?php echo $childs->id;?>,'p1_{{ $i }}')">
+                      <option value="0" <?php if($childs->{'p1_' .$i} == "0") { echo 'selected'; } ?>>0</option>
+                      <option value="1" <?php if($childs->{'p1_' .$i} == "1") { echo 'selected'; } ?>>1</option>
+                    </select>
+                  </td>
+                <?php } ?>
+              <?php } ?>
+              <?php if($data->p2 != 0) { ?>
+                <?php for($i =0; $i < $data->p2; $i++) { ?>
+                  <td class="text-center" style="border-bottom: 1px solid #C2C2C2; border-right: 1px solid #C2C2C2;padding: 10">
+                    <select name="values[<?php echo $childs->id; ?>][p2_<?php echo $i; ?>]" value="<?php echo $childs->{'p2_' .$i};?>" style="" class="variables_<?php echo $childs->id;?> p2_<?php echo $i;?> cyel" onchange="sumaUnos(<?php echo $childs->id;?>,'p2_{{ $i }}')">
+                      <option value="0" <?php if($childs->{'p2_' .$i} == "0") { echo 'selected'; } ?>>0</option>
+                      <option value="1" <?php if($childs->{'p2_' .$i} == "1") { echo 'selected'; } ?>>1</option>
+                    </select>
+                  </td>
+                <?php } ?>
+              <?php } ?>
+              <?php if($data->p3 != 0) { ?>
+                <?php for($i =0; $i < $data->p3; $i++) { ?>
+                  <td class="text-center" style="border-bottom: 1px solid #C2C2C2; border-right: 1px solid #C2C2C2;padding: 10">
+                    <select name="values[<?php echo $childs->id; ?>][p3_<?php echo $i; ?>]" value="<?php echo $childs->{'p3_' .$i};?>" style="" class="variables_<?php echo $childs->id;?> p3_<?php echo $i;?> cyel" onchange="sumaUnos(<?php echo $childs->id;?>,'p3_{{ $i }}')">
+                      <option value="0" <?php if($childs->{'p3_' .$i} == "0") { echo 'selected'; } ?>>0</option>
+                      <option value="1" <?php if($childs->{'p3_' .$i} == "1") { echo 'selected'; } ?>>1</option>
+                    </select>
+                  </td>
+                <?php } ?>
+              <?php } ?>
+              <?php if($data->p4 != 0) { ?>
+                <?php for($i =0; $i < $data->p4; $i++) { ?>
+                  <td class="text-center" style="border-bottom: 1px solid #C2C2C2; border-right: 1px solid #C2C2C2;padding: 10">
+                    <select name="values[<?php echo $childs->id; ?>][p4_<?php echo $i; ?>]" value="<?php echo $childs->{'p4_' .$i};?>" style="" class="variables_<?php echo $childs->id;?> p4_<?php echo $i;?> cyel" onchange="sumaUnos(<?php echo $childs->id;?>,'p4_{{ $i }}')">
+                      <option value="0" <?php if($childs->{'p4_' .$i} == "0") { echo 'selected'; } ?>>0</option>
+                      <option value="1" <?php if($childs->{'p4_' .$i} == "1") { echo 'selected'; } ?>>1</option>
+                    </select>
+                  </td>
+                <?php } ?>
+              <?php } ?>
+              <?php if($data->p5 != 0) { ?>
+                <?php for($i =0; $i < $data->p5; $i++) { ?>
+                  <td class="text-center" style="border-bottom: 1px solid #C2C2C2; border-right: 1px solid #C2C2C2;padding: 10">
+                    <select name="values[<?php echo $childs->id; ?>][p5_<?php echo $i; ?>]" value="<?php echo $childs->{'p5_' .$i};?>" style="" class="variables_<?php echo $childs->id;?> p5_<?php echo $i;?> cyel" onchange="sumaUnos(<?php echo $childs->id;?>,'p5_{{ $i }}')">
+                      <option value="0" <?php if($childs->{'p5_' .$i} == "0") { echo 'selected'; } ?>>0</option>
+                      <option value="1" <?php if($childs->{'p5_' .$i} == "1") { echo 'selected'; } ?>>1</option>
+                    </select>
+                  </td>
+                <?php } ?>
+              <?php } ?>
+              <?php if($data->p6 != 0) { ?>
+                <?php for($i =0; $i < $data->p6; $i++) { ?>
+                  <td class="text-center" style="border-bottom: 1px solid #C2C2C2; border-right: 1px solid #C2C2C2;padding: 10">
+                    <select name="values[<?php echo $childs->id; ?>][p6_<?php echo $i; ?>]" value="<?php echo $childs->{'p6_' .$i};?>" style="" class="variables_<?php echo $childs->id;?> p6_<?php echo $i;?> cyel" onchange="sumaUnos(<?php echo $childs->id;?>,'p6_{{ $i }}')">
+                      <option value="0" <?php if($childs->{'p6_' .$i} == "0") { echo 'selected'; } ?>>0</option>
+                      <option value="1" <?php if($childs->{'p6_' .$i} == "1") { echo 'selected'; } ?>>1</option>
+                    </select>
+                  </td>
+                <?php } ?>
+              <?php } ?>
+              <?php if($data->p7 != 0) { ?>
+                <?php for($i =0; $i < $data->p7; $i++) { ?>
+                  <td class="text-center" style="border-bottom: 1px solid #C2C2C2; border-right: 1px solid #C2C2C2;padding: 10">
+                    <select name="values[<?php echo $childs->id; ?>][p7_<?php echo $i; ?>]" value="<?php echo $childs->{'p7_' .$i};?>" style="" class="variables_<?php echo $childs->id;?> p7_<?php echo $i;?> cyel" onchange="sumaUnos(<?php echo $childs->id;?>,'p7_{{ $i }}')">
+                      <option value="0" <?php if($childs->{'p7_' .$i} == "0") { echo 'selected'; } ?>>0</option>
+                      <option value="1" <?php if($childs->{'p7_' .$i} == "1") { echo 'selected'; } ?>>1</option>
+                    </select>
+                  </td>
+                <?php } ?>
+              <?php } ?>
+              <?php if($data->p8 != 0) { ?>
+                <?php for($i =0; $i < $data->p8; $i++) { ?>
+                  <td class="text-center" style="border-bottom: 1px solid #C2C2C2; border-right: 1px solid #C2C2C2;padding: 10">
+                    <select name="values[<?php echo $childs->id; ?>][p8_<?php echo $i; ?>]" value="<?php echo $childs->{'p8_' .$i};?>" style="" class="variables_<?php echo $childs->id;?> p8_<?php echo $i;?> cyel" onchange="sumaUnos(<?php echo $childs->id;?>,'p8_{{ $i }}')">
+                      <option value="0" <?php if($childs->{'p8_' .$i} == "0") { echo 'selected'; } ?>>0</option>
+                      <option value="1" <?php if($childs->{'p8_' .$i} == "1") { echo 'selected'; } ?>>1</option>
+                    </select>
+                  </td>
+                <?php } ?>
+              <?php } ?>
+              <?php if($data->p9 != 0) { ?>
+                <?php for($i =0; $i < $data->p9; $i++) { ?>
+                  <td class="text-center" style="border-bottom: 1px solid #C2C2C2; border-right: 1px solid #C2C2C2;padding: 10">
+                    <select name="values[<?php echo $childs->id; ?>][p9_<?php echo $i; ?>]" value="<?php echo $childs->{'p9_' .$i};?>" style="" class="variables_<?php echo $childs->id;?> p9_<?php echo $i;?> cyel" onchange="sumaUnos(<?php echo $childs->id;?>,'p9_{{ $i }}')">
+                      <option value="0" <?php if($childs->{'p9_' .$i} == "0") { echo 'selected'; } ?>>0</option>
+                      <option value="1" <?php if($childs->{'p9_' .$i} == "1") { echo 'selected'; } ?>>1</option>
+                    </select>
+                  </td>
+                <?php } ?>
+              <?php } ?>
+              <?php if($data->p10 != 0) { ?>
+                <?php for($i =0; $i < $data->p10; $i++) { ?>
+                  <td class="text-center" style="border-bottom: 1px solid #C2C2C2; border-right: 1px solid #C2C2C2;padding: 10">
+                    <select name="values[<?php echo $childs->id; ?>][p10_<?php echo $i; ?>]" value="<?php echo $childs->{'p10_' .$i};?>" style="" class="variables_<?php echo $childs->id;?> p10_<?php echo $i;?> cyel" onchange="sumaUnos(<?php echo $childs->id;?>,'p10_{{ $i }}')">
+                      <option value="0" <?php if($childs->{'p10_' .$i} == "0") { echo 'selected'; } ?>>0</option>
+                      <option value="1" <?php if($childs->{'p10_' .$i} == "1") { echo 'selected'; } ?>>1</option>
+                    </select>
+                  </td>
+                <?php } ?>
+              <?php } ?>
+              <?php if($data->p11 != 0) { ?>
+                <?php for($i =0; $i < $data->p11; $i++) { ?>
+                  <td class="text-center" style="border-bottom: 1px solid #C2C2C2; border-right: 1px solid #C2C2C2;padding: 10">
+                    <select name="values[<?php echo $childs->id; ?>][p11_<?php echo $i; ?>]" value="<?php echo $childs->{'p11_' .$i};?>" style="" class="variables_<?php echo $childs->id;?> p11_<?php echo $i;?> cyel" onchange="sumaUnos(<?php echo $childs->id;?>,'p11_{{ $i }}')">
+                      <option value="0" <?php if($childs->{'p11_' .$i} == "0") { echo 'selected'; } ?>>0</option>
+                      <option value="1" <?php if($childs->{'p11_' .$i} == "1") { echo 'selected'; } ?>>1</option>
+                    </select>
+                  </td>
+                <?php } ?>
+              <?php } ?>
+              <?php if($data->p12 != 0) { ?>
+                <?php for($i =0; $i < $data->p12; $i++) { ?>
+                  <td class="text-center" style="border-bottom: 1px solid #C2C2C2; border-right: 1px solid #C2C2C2;padding: 10">
+                    <select name="values[<?php echo $childs->id; ?>][p12_<?php echo $i; ?>]" value="<?php echo $childs->{'p12_' .$i};?>" style="" class="variables_<?php echo $childs->id;?> p12_<?php echo $i;?> cyel" onchange="sumaUnos(<?php echo $childs->id;?>,'p12_{{ $i }}')">
+                      <option value="0" <?php if($childs->{'p12_' .$i} == "0") { echo 'selected'; } ?>>0</option>
+                      <option value="1" <?php if($childs->{'p12_' .$i} == "1") { echo 'selected'; } ?>>1</option>
+                    </select>
+                  </td>
+                <?php } ?>
+              <?php } ?>
+              <?php if($data->p13 != 0) { ?>
+                <?php for($i =0; $i < $data->p13; $i++) { ?>
+                  <td class="text-center" style="border-bottom: 1px solid #C2C2C2; border-right: 1px solid #C2C2C2;padding: 10">
+                    <select name="values[<?php echo $childs->id; ?>][p13_<?php echo $i; ?>]" value="<?php echo $childs->{'p13_' .$i};?>" style="" class="variables_<?php echo $childs->id;?> p13_<?php echo $i;?> cyel" onchange="sumaUnos(<?php echo $childs->id;?>,'p13_{{ $i }}')">
+                      <option value="0" <?php if($childs->{'p13_' .$i} == "0") { echo 'selected'; } ?>>0</option>
+                      <option value="1" <?php if($childs->{'p13_' .$i} == "1") { echo 'selected'; } ?>>1</option>
+                    </select>
+                  </td>
+                <?php } ?>
+              <?php } ?>
+
               <td style="padding-top:0px; font-weight: bold;padding: 10; border-bottom: 1px solid #C2C2C2;  border-right: 1px solid #C2C2C2; <?php if(in_array($childs->porcentaje,$maximos) && $pintados <= 9) { echo 'background:#fccac7'; $pintados++;}?>" class="text-center">
                 <div id="lblConteo_<?php echo $childs->id;?>"> <?php echo $childs->atencion;?> </div>
                 <input type="hidden" name="values[<?php echo $childs->id; ?>][atencion]" value="<?php echo $childs->atencion;?>" style="width:80%;"  class="atenciones" id="atencion_<?php echo $childs->id;?>"/>
@@ -336,6 +624,111 @@ $alfabeto = array('A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P
             <?php } ?>
           <?php } ?>
 
+          <?php if($data->p1 != 0) { ?>
+            <?php for($i =0; $i < $data->p1; $i++) { ?>
+              <th style="padding: 0; border-right: 1px solid #C2C2C2; border-bottom: 1px solid #C2C2C2; <?php if(in_array($totales['p1_' . $i]['suma'],$tMaximos[0]) &&  $pintados <= 9) { echo 'background: #fccac7; ';  $pintados++;} ?>" class="text-center">
+                <div id="p1_<?php echo $i;?>_sum"><?php echo $totales['p1_' . $i]['suma']; ?></div>
+                <input type="hidden" readonly name="totales[p1_<?php echo $i;?>][suma]" value="<?php echo $totales['p1_' . $i]['suma']; ?>" style="width:80%;" id="p1_<?php echo $i;?>_sum_txt"/>
+              </th>
+            <?php } ?>
+          <?php } ?>
+          <?php if($data->p2 != 0) { ?>
+            <?php for($i =0; $i < $data->p2; $i++) { ?>
+              <th style="padding: 0; border-right: 1px solid #C2C2C2; border-bottom: 1px solid #C2C2C2; <?php if(in_array($totales['p2_' . $i]['suma'],$tMaximos[0]) &&  $pintados <= 9) { echo 'background: #fccac7; ';  $pintados++;} ?>" class="text-center">
+                <div id="p2_<?php echo $i;?>_sum"><?php echo $totales['p2_' . $i]['suma']; ?></div>
+                <input type="hidden" readonly name="totales[p2_<?php echo $i;?>][suma]" value="<?php echo $totales['p2_' . $i]['suma']; ?>" style="width:80%;" id="p2_<?php echo $i;?>_sum_txt"/>
+              </th>
+            <?php } ?>
+          <?php } ?>
+          <?php if($data->p3 != 0) { ?>
+            <?php for($i =0; $i < $data->p3; $i++) { ?>
+              <th style="padding: 0; border-right: 1px solid #C2C2C2; border-bottom: 1px solid #C2C2C2; <?php if(in_array($totales['p3_' . $i]['suma'],$tMaximos[0]) &&  $pintados <= 9) { echo 'background: #fccac7; ';  $pintados++;} ?>" class="text-center">
+                <div id="p3_<?php echo $i;?>_sum"><?php echo $totales['p3_' . $i]['suma']; ?></div>
+                <input type="hidden" readonly name="totales[p3_<?php echo $i;?>][suma]" value="<?php echo $totales['p3_' . $i]['suma']; ?>" style="width:80%;" id="p3_<?php echo $i;?>_sum_txt"/>
+              </th>
+            <?php } ?>
+          <?php } ?>
+          <?php if($data->p4 != 0) { ?>
+            <?php for($i =0; $i < $data->p4; $i++) { ?>
+              <th style="padding: 0; border-right: 1px solid #C2C2C2; border-bottom: 1px solid #C2C2C2; <?php if(in_array($totales['p4_' . $i]['suma'],$tMaximos[0]) &&  $pintados <= 9) { echo 'background: #fccac7; ';  $pintados++;} ?>" class="text-center">
+                <div id="p4_<?php echo $i;?>_sum"><?php echo $totales['p4_' . $i]['suma']; ?></div>
+                <input type="hidden" readonly name="totales[p4_<?php echo $i;?>][suma]" value="<?php echo $totales['p4_' . $i]['suma']; ?>" style="width:80%;" id="p4_<?php echo $i;?>_sum_txt"/>
+              </th>
+            <?php } ?>
+          <?php } ?>
+          <?php if($data->p5 != 0) { ?>
+            <?php for($i =0; $i < $data->p5; $i++) { ?>
+              <th style="padding: 0; border-right: 1px solid #C2C2C2; border-bottom: 1px solid #C2C2C2; <?php if(in_array($totales['p5_' . $i]['suma'],$tMaximos[0]) &&  $pintados <= 9) { echo 'background: #fccac7; ';  $pintados++;} ?>" class="text-center">
+                <div id="p5_<?php echo $i;?>_sum"><?php echo $totales['p5_' . $i]['suma']; ?></div>
+                <input type="hidden" readonly name="totales[p5_<?php echo $i;?>][suma]" value="<?php echo $totales['p5_' . $i]['suma']; ?>" style="width:80%;" id="p5_<?php echo $i;?>_sum_txt"/>
+              </th>
+            <?php } ?>
+          <?php } ?>
+          <?php if($data->p6 != 0) { ?>
+            <?php for($i =0; $i < $data->p6; $i++) { ?>
+              <th style="padding: 0; border-right: 1px solid #C2C2C2; border-bottom: 1px solid #C2C2C2; <?php if(in_array($totales['p6_' . $i]['suma'],$tMaximos[0]) &&  $pintados <= 9) { echo 'background: #fccac7; ';  $pintados++;} ?>" class="text-center">
+                <div id="p6_<?php echo $i;?>_sum"><?php echo $totales['p6_' . $i]['suma']; ?></div>
+                <input type="hidden" readonly name="totales[p6_<?php echo $i;?>][suma]" value="<?php echo $totales['p6_' . $i]['suma']; ?>" style="width:80%;" id="p6_<?php echo $i;?>_sum_txt"/>
+              </th>
+            <?php } ?>
+          <?php } ?>
+          <?php if($data->p7 != 0) { ?>
+            <?php for($i =0; $i < $data->p7; $i++) { ?>
+              <th style="padding: 0; border-right: 1px solid #C2C2C2; border-bottom: 1px solid #C2C2C2; <?php if(in_array($totales['p7_' . $i]['suma'],$tMaximos[0]) &&  $pintados <= 9) { echo 'background: #fccac7; ';  $pintados++;} ?>" class="text-center">
+                <div id="p7_<?php echo $i;?>_sum"><?php echo $totales['p7_' . $i]['suma']; ?></div>
+                <input type="hidden" readonly name="totales[p7_<?php echo $i;?>][suma]" value="<?php echo $totales['p7_' . $i]['suma']; ?>" style="width:80%;" id="p7_<?php echo $i;?>_sum_txt"/>
+              </th>
+            <?php } ?>
+          <?php } ?>
+          <?php if($data->p8 != 0) { ?>
+            <?php for($i =0; $i < $data->p8; $i++) { ?>
+              <th style="padding: 0; border-right: 1px solid #C2C2C2; border-bottom: 1px solid #C2C2C2; <?php if(in_array($totales['p8_' . $i]['suma'],$tMaximos[0]) &&  $pintados <= 9) { echo 'background: #fccac7; ';  $pintados++;} ?>" class="text-center">
+                <div id="p8_<?php echo $i;?>_sum"><?php echo $totales['p8_' . $i]['suma']; ?></div>
+                <input type="hidden" readonly name="totales[p8_<?php echo $i;?>][suma]" value="<?php echo $totales['p8_' . $i]['suma']; ?>" style="width:80%;" id="p8_<?php echo $i;?>_sum_txt"/>
+              </th>
+            <?php } ?>
+          <?php } ?>
+          <?php if($data->p9 != 0) { ?>
+            <?php for($i =0; $i < $data->p9; $i++) { ?>
+              <th style="padding: 0; border-right: 1px solid #C2C2C2; border-bottom: 1px solid #C2C2C2; <?php if(in_array($totales['p9_' . $i]['suma'],$tMaximos[0]) &&  $pintados <= 9) { echo 'background: #fccac7; ';  $pintados++;} ?>" class="text-center">
+                <div id="p9_<?php echo $i;?>_sum"><?php echo $totales['p9_' . $i]['suma']; ?></div>
+                <input type="hidden" readonly name="totales[p9_<?php echo $i;?>][suma]" value="<?php echo $totales['p9_' . $i]['suma']; ?>" style="width:80%;" id="p9_<?php echo $i;?>_sum_txt"/>
+              </th>
+            <?php } ?>
+          <?php } ?>
+          <?php if($data->p10 != 0) { ?>
+            <?php for($i =0; $i < $data->p10; $i++) { ?>
+              <th style="padding: 0; border-right: 1px solid #C2C2C2; border-bottom: 1px solid #C2C2C2; <?php if(in_array($totales['p10_' . $i]['suma'],$tMaximos[0]) &&  $pintados <= 9) { echo 'background: #fccac7; ';  $pintados++;} ?>" class="text-center">
+                <div id="p10_<?php echo $i;?>_sum"><?php echo $totales['p10_' . $i]['suma']; ?></div>
+                <input type="hidden" readonly name="totales[p10_<?php echo $i;?>][suma]" value="<?php echo $totales['p10_' . $i]['suma']; ?>" style="width:80%;" id="p10_<?php echo $i;?>_sum_txt"/>
+              </th>
+            <?php } ?>
+          <?php } ?>
+          <?php if($data->p11 != 0) { ?>
+            <?php for($i =0; $i < $data->p11; $i++) { ?>
+              <th style="padding: 0; border-right: 1px solid #C2C2C2; border-bottom: 1px solid #C2C2C2; <?php if(in_array($totales['p11_' . $i]['suma'],$tMaximos[0]) &&  $pintados <= 9) { echo 'background: #fccac7; ';  $pintados++;} ?>" class="text-center">
+                <div id="p11_<?php echo $i;?>_sum"><?php echo $totales['p11_' . $i]['suma']; ?></div>
+                <input type="hidden" readonly name="totales[p11_<?php echo $i;?>][suma]" value="<?php echo $totales['p11_' . $i]['suma']; ?>" style="width:80%;" id="p11_<?php echo $i;?>_sum_txt"/>
+              </th>
+            <?php } ?>
+          <?php } ?>
+          <?php if($data->p12 != 0) { ?>
+            <?php for($i =0; $i < $data->p12; $i++) { ?>
+              <th style="padding: 0; border-right: 1px solid #C2C2C2; border-bottom: 1px solid #C2C2C2; <?php if(in_array($totales['p12_' . $i]['suma'],$tMaximos[0]) &&  $pintados <= 9) { echo 'background: #fccac7; ';  $pintados++;} ?>" class="text-center">
+                <div id="p12_<?php echo $i;?>_sum"><?php echo $totales['p12_' . $i]['suma']; ?></div>
+                <input type="hidden" readonly name="totales[p12_<?php echo $i;?>][suma]" value="<?php echo $totales['p12_' . $i]['suma']; ?>" style="width:80%;" id="p12_<?php echo $i;?>_sum_txt"/>
+              </th>
+            <?php } ?>
+          <?php } ?>
+          <?php if($data->p13 != 0) { ?>
+            <?php for($i =0; $i < $data->p13; $i++) { ?>
+              <th style="padding: 0; border-right: 1px solid #C2C2C2; border-bottom: 1px solid #C2C2C2; <?php if(in_array($totales['p13_' . $i]['suma'],$tMaximos[0]) &&  $pintados <= 9) { echo 'background: #fccac7; ';  $pintados++;} ?>" class="text-center">
+                <div id="p13_<?php echo $i;?>_sum"><?php echo $totales['p13_' . $i]['suma']; ?></div>
+                <input type="hidden" readonly name="totales[p13_<?php echo $i;?>][suma]" value="<?php echo $totales['p13_' . $i]['suma']; ?>" style="width:80%;" id="p13_<?php echo $i;?>_sum_txt"/>
+              </th>
+            <?php } ?>
+          <?php } ?>
+
           <td rowspan="2" colspan="2" style=" border-right: 1px solid #C2C2C2;" class="text-center"></td>
 
         </tr>
@@ -400,6 +793,111 @@ $alfabeto = array('A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P
               <th style="padding: 0; border-right: 1px solid #C2C2C2; border-bottom: 1px solid #C2C2C2; <?php if(in_array($totales['legislacion_' . $i]['porcentaje'],$tMaximos[1]) &&  $pintados <= 9) { echo 'background: #fccac7'; $pintados++;} ?>" class="text-center">
                 <div id="legislacion_<?php echo $i;?>_porc"><?php echo $totales['legislacion_' . $i]['porcentaje']; ?> %</div>
                 <input type="hidden" readonly name="totales[legislacion_<?php echo $i;?>][porcentaje]" value="<?php echo $totales['legislacion_' . $i]['porcentaje']; ?>" style="width:80%;" id="legislacion_<?php echo $i;?>_porc_txt"/>
+              </th>
+            <?php } ?>
+          <?php } ?>
+
+          <?php if($data->p1 != 0) { ?>
+            <?php for($i =0; $i < $data->p1; $i++) { ?>
+              <th style="padding: 0; border-right: 1px solid #C2C2C2; border-bottom: 1px solid #C2C2C2; <?php if(in_array($totales['p1_' . $i]['porcentaje'],$tMaximos[1]) &&  $pintados <= 9) { echo 'background: #fccac7'; $pintados++;} ?>" class="text-center">
+                <div id="p1_<?php echo $i;?>_porc"><?php echo $totales['p1_' . $i]['porcentaje']; ?> %</div>
+                <input type="hidden" readonly name="totales[p1_<?php echo $i;?>][porcentaje]" value="<?php echo $totales['p1_' . $i]['porcentaje']; ?>" style="width:80%;" id="p1_<?php echo $i;?>_porc_txt"/>
+              </th>
+            <?php } ?>
+          <?php } ?>
+          <?php if($data->p2 != 0) { ?>
+            <?php for($i =0; $i < $data->p2; $i++) { ?>
+              <th style="padding: 0; border-right: 1px solid #C2C2C2; border-bottom: 1px solid #C2C2C2; <?php if(in_array($totales['p2_' . $i]['porcentaje'],$tMaximos[1]) &&  $pintados <= 9) { echo 'background: #fccac7'; $pintados++;} ?>" class="text-center">
+                <div id="p2_<?php echo $i;?>_porc"><?php echo $totales['p2_' . $i]['porcentaje']; ?> %</div>
+                <input type="hidden" readonly name="totales[p2_<?php echo $i;?>][porcentaje]" value="<?php echo $totales['p2_' . $i]['porcentaje']; ?>" style="width:80%;" id="p2_<?php echo $i;?>_porc_txt"/>
+              </th>
+            <?php } ?>
+          <?php } ?>
+          <?php if($data->p3 != 0) { ?>
+            <?php for($i =0; $i < $data->p3; $i++) { ?>
+              <th style="padding: 0; border-right: 1px solid #C2C2C2; border-bottom: 1px solid #C2C2C2; <?php if(in_array($totales['p3_' . $i]['porcentaje'],$tMaximos[1]) &&  $pintados <= 9) { echo 'background: #fccac7'; $pintados++;} ?>" class="text-center">
+                <div id="p3_<?php echo $i;?>_porc"><?php echo $totales['p3_' . $i]['porcentaje']; ?> %</div>
+                <input type="hidden" readonly name="totales[p3_<?php echo $i;?>][porcentaje]" value="<?php echo $totales['p3_' . $i]['porcentaje']; ?>" style="width:80%;" id="p3_<?php echo $i;?>_porc_txt"/>
+              </th>
+            <?php } ?>
+          <?php } ?>
+          <?php if($data->p4 != 0) { ?>
+            <?php for($i =0; $i < $data->p4; $i++) { ?>
+              <th style="padding: 0; border-right: 1px solid #C2C2C2; border-bottom: 1px solid #C2C2C2; <?php if(in_array($totales['p4_' . $i]['porcentaje'],$tMaximos[1]) &&  $pintados <= 9) { echo 'background: #fccac7'; $pintados++;} ?>" class="text-center">
+                <div id="p4_<?php echo $i;?>_porc"><?php echo $totales['p4_' . $i]['porcentaje']; ?> %</div>
+                <input type="hidden" readonly name="totales[p4_<?php echo $i;?>][porcentaje]" value="<?php echo $totales['p4_' . $i]['porcentaje']; ?>" style="width:80%;" id="p4_<?php echo $i;?>_porc_txt"/>
+              </th>
+            <?php } ?>
+          <?php } ?>
+          <?php if($data->p5 != 0) { ?>
+            <?php for($i =0; $i < $data->p5; $i++) { ?>
+              <th style="padding: 0; border-right: 1px solid #C2C2C2; border-bottom: 1px solid #C2C2C2; <?php if(in_array($totales['p5_' . $i]['porcentaje'],$tMaximos[1]) &&  $pintados <= 9) { echo 'background: #fccac7'; $pintados++;} ?>" class="text-center">
+                <div id="p5_<?php echo $i;?>_porc"><?php echo $totales['p5_' . $i]['porcentaje']; ?> %</div>
+                <input type="hidden" readonly name="totales[p5_<?php echo $i;?>][porcentaje]" value="<?php echo $totales['p5_' . $i]['porcentaje']; ?>" style="width:80%;" id="p5_<?php echo $i;?>_porc_txt"/>
+              </th>
+            <?php } ?>
+          <?php } ?>
+          <?php if($data->p6 != 0) { ?>
+            <?php for($i =0; $i < $data->p6; $i++) { ?>
+              <th style="padding: 0; border-right: 1px solid #C2C2C2; border-bottom: 1px solid #C2C2C2; <?php if(in_array($totales['p6_' . $i]['porcentaje'],$tMaximos[1]) &&  $pintados <= 9) { echo 'background: #fccac7'; $pintados++;} ?>" class="text-center">
+                <div id="p6_<?php echo $i;?>_porc"><?php echo $totales['p6_' . $i]['porcentaje']; ?> %</div>
+                <input type="hidden" readonly name="totales[p6_<?php echo $i;?>][porcentaje]" value="<?php echo $totales['p6_' . $i]['porcentaje']; ?>" style="width:80%;" id="p6_<?php echo $i;?>_porc_txt"/>
+              </th>
+            <?php } ?>
+          <?php } ?>
+          <?php if($data->p7 != 0) { ?>
+            <?php for($i =0; $i < $data->p7; $i++) { ?>
+              <th style="padding: 0; border-right: 1px solid #C2C2C2; border-bottom: 1px solid #C2C2C2; <?php if(in_array($totales['p7_' . $i]['porcentaje'],$tMaximos[1]) &&  $pintados <= 9) { echo 'background: #fccac7'; $pintados++;} ?>" class="text-center">
+                <div id="p7_<?php echo $i;?>_porc"><?php echo $totales['p7_' . $i]['porcentaje']; ?> %</div>
+                <input type="hidden" readonly name="totales[p7_<?php echo $i;?>][porcentaje]" value="<?php echo $totales['p7_' . $i]['porcentaje']; ?>" style="width:80%;" id="p7_<?php echo $i;?>_porc_txt"/>
+              </th>
+            <?php } ?>
+          <?php } ?>
+          <?php if($data->p8 != 0) { ?>
+            <?php for($i =0; $i < $data->p8; $i++) { ?>
+              <th style="padding: 0; border-right: 1px solid #C2C2C2; border-bottom: 1px solid #C2C2C2; <?php if(in_array($totales['p8_' . $i]['porcentaje'],$tMaximos[1]) &&  $pintados <= 9) { echo 'background: #fccac7'; $pintados++;} ?>" class="text-center">
+                <div id="p8_<?php echo $i;?>_porc"><?php echo $totales['p8_' . $i]['porcentaje']; ?> %</div>
+                <input type="hidden" readonly name="totales[p8_<?php echo $i;?>][porcentaje]" value="<?php echo $totales['p8_' . $i]['porcentaje']; ?>" style="width:80%;" id="p8_<?php echo $i;?>_porc_txt"/>
+              </th>
+            <?php } ?>
+          <?php } ?>
+          <?php if($data->p9 != 0) { ?>
+            <?php for($i =0; $i < $data->p9; $i++) { ?>
+              <th style="padding: 0; border-right: 1px solid #C2C2C2; border-bottom: 1px solid #C2C2C2; <?php if(in_array($totales['p9_' . $i]['porcentaje'],$tMaximos[1]) &&  $pintados <= 9) { echo 'background: #fccac7'; $pintados++;} ?>" class="text-center">
+                <div id="p9_<?php echo $i;?>_porc"><?php echo $totales['p9_' . $i]['porcentaje']; ?> %</div>
+                <input type="hidden" readonly name="totales[p9_<?php echo $i;?>][porcentaje]" value="<?php echo $totales['p9_' . $i]['porcentaje']; ?>" style="width:80%;" id="p9_<?php echo $i;?>_porc_txt"/>
+              </th>
+            <?php } ?>
+          <?php } ?>
+          <?php if($data->p10 != 0) { ?>
+            <?php for($i =0; $i < $data->p10; $i++) { ?>
+              <th style="padding: 0; border-right: 1px solid #C2C2C2; border-bottom: 1px solid #C2C2C2; <?php if(in_array($totales['p10_' . $i]['porcentaje'],$tMaximos[1]) &&  $pintados <= 9) { echo 'background: #fccac7'; $pintados++;} ?>" class="text-center">
+                <div id="p10_<?php echo $i;?>_porc"><?php echo $totales['p10_' . $i]['porcentaje']; ?> %</div>
+                <input type="hidden" readonly name="totales[p10_<?php echo $i;?>][porcentaje]" value="<?php echo $totales['p10_' . $i]['porcentaje']; ?>" style="width:80%;" id="p10_<?php echo $i;?>_porc_txt"/>
+              </th>
+            <?php } ?>
+          <?php } ?>
+          <?php if($data->p11 != 0) { ?>
+            <?php for($i =0; $i < $data->p11; $i++) { ?>
+              <th style="padding: 0; border-right: 1px solid #C2C2C2; border-bottom: 1px solid #C2C2C2; <?php if(in_array($totales['p11_' . $i]['porcentaje'],$tMaximos[1]) &&  $pintados <= 9) { echo 'background: #fccac7'; $pintados++;} ?>" class="text-center">
+                <div id="p11_<?php echo $i;?>_porc"><?php echo $totales['p11_' . $i]['porcentaje']; ?> %</div>
+                <input type="hidden" readonly name="totales[p11_<?php echo $i;?>][porcentaje]" value="<?php echo $totales['p11_' . $i]['porcentaje']; ?>" style="width:80%;" id="p11_<?php echo $i;?>_porc_txt"/>
+              </th>
+            <?php } ?>
+          <?php } ?>
+          <?php if($data->p12 != 0) { ?>
+            <?php for($i =0; $i < $data->p12; $i++) { ?>
+              <th style="padding: 0; border-right: 1px solid #C2C2C2; border-bottom: 1px solid #C2C2C2; <?php if(in_array($totales['p12_' . $i]['porcentaje'],$tMaximos[1]) &&  $pintados <= 9) { echo 'background: #fccac7'; $pintados++;} ?>" class="text-center">
+                <div id="p12_<?php echo $i;?>_porc"><?php echo $totales['p12_' . $i]['porcentaje']; ?> %</div>
+                <input type="hidden" readonly name="totales[p12_<?php echo $i;?>][porcentaje]" value="<?php echo $totales['p12_' . $i]['porcentaje']; ?>" style="width:80%;" id="p12_<?php echo $i;?>_porc_txt"/>
+              </th>
+            <?php } ?>
+          <?php } ?>
+          <?php if($data->p13 != 0) { ?>
+            <?php for($i =0; $i < $data->p13; $i++) { ?>
+              <th style="padding: 0; border-right: 1px solid #C2C2C2; border-bottom: 1px solid #C2C2C2; <?php if(in_array($totales['p13_' . $i]['porcentaje'],$tMaximos[1]) &&  $pintados <= 9) { echo 'background: #fccac7'; $pintados++;} ?>" class="text-center">
+                <div id="p13_<?php echo $i;?>_porc"><?php echo $totales['p13_' . $i]['porcentaje']; ?> %</div>
+                <input type="hidden" readonly name="totales[p13_<?php echo $i;?>][porcentaje]" value="<?php echo $totales['p13_' . $i]['porcentaje']; ?>" style="width:80%;" id="p13_<?php echo $i;?>_porc_txt"/>
               </th>
             <?php } ?>
           <?php } ?>

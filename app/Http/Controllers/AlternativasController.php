@@ -95,24 +95,28 @@ class AlternativasController extends Controller {
     $rpt_id = DB::table('report')->insertGetId([
 
       'created_at'         => date('Y-m-d'),
-
       'updated_at'         => null,
-
       'project_id'        => $request->input('project_id'),
-
       'politicas'         => (int)$request->input('politicas'),
-
       'educacion'         => (int)$request->input('educacion'),
-
       'investigacion'     => (int)$request->input('investigacion'),
-
       'planeacion'        => (int)$request->input('planeacion'),
-
       'institucional'     => (int)$request->input('institucional'),
-
       'salud'             => (int)$request->input('salud'),
-
       'legislacion'       => (int)$request->input('legislacion'),
+      'p1'       => (int)$request->input('p1'),
+      'p2'       => (int)$request->input('p2'),
+      'p3'       => (int)$request->input('p3'),
+      'p4'       => (int)$request->input('p4'),
+      'p5'       => (int)$request->input('p5'),
+      'p6'       => (int)$request->input('p6'),
+      'p7'       => (int)$request->input('p7'),
+      'p8'       => (int)$request->input('p8'),
+      'p9'       => (int)$request->input('p9'),
+      'p10'       => (int)$request->input('p10'),
+      'p11'       => (int)$request->input('p11'),
+      'p12'       => (int)$request->input('p12'),
+      'p13'       => (int)$request->input('p13'),
 
       'tabla'             => $tableName
     ]);
@@ -258,6 +262,137 @@ class AlternativasController extends Controller {
       ]);
 
 
+    }
+
+    for($i=0; $i < (int)$request->input('p1'); $i++) {
+      $tableCreate .= "p1_" . $i. " varchar(10)  NOT NULL DEFAULT '0',";
+      DB::table('report_totales')->insert([
+        'report_id'    => $rpt_id,
+        'columna'       => "p1_" . $i,
+        'n_group'       => "Propuesta 8",
+        'suma'          => 0,
+        'porcentaje'    => 0,
+      ]);
+    }
+    for($i=0; $i < (int)$request->input('p2'); $i++) {
+      $tableCreate .= "p2_" . $i. " varchar(10)  NOT NULL DEFAULT '0',";
+      DB::table('report_totales')->insert([
+        'report_id'    => $rpt_id,
+        'columna'       => "p2_" . $i,
+        'n_group'       => "Propuesta 9",
+        'suma'          => 0,
+        'porcentaje'    => 0,
+      ]);
+    }
+    for($i=0; $i < (int)$request->input('p3'); $i++) {
+      $tableCreate .= "p3_" . $i. " varchar(10)  NOT NULL DEFAULT '0',";
+      DB::table('report_totales')->insert([
+        'report_id'    => $rpt_id,
+        'columna'       => "p3_" . $i,
+        'n_group'       => "Propuesta 10",
+        'suma'          => 0,
+        'porcentaje'    => 0,
+      ]);
+    }
+    for($i=0; $i < (int)$request->input('p4'); $i++) {
+      $tableCreate .= "p4_" . $i. " varchar(10)  NOT NULL DEFAULT '0',";
+      DB::table('report_totales')->insert([
+        'report_id'    => $rpt_id,
+        'columna'       => "p4_" . $i,
+        'n_group'       => "Propuesta 11",
+        'suma'          => 0,
+        'porcentaje'    => 0,
+      ]);
+    }
+    for($i=0; $i < (int)$request->input('p5'); $i++) {
+      $tableCreate .= "p5_" . $i. " varchar(10)  NOT NULL DEFAULT '0',";
+      DB::table('report_totales')->insert([
+        'report_id'    => $rpt_id,
+        'columna'       => "p5_" . $i,
+        'n_group'       => "Propuesta 12",
+        'suma'          => 0,
+        'porcentaje'    => 0,
+      ]);
+    }
+    for($i=0; $i < (int)$request->input('p6'); $i++) {
+      $tableCreate .= "p6_" . $i. " varchar(10)  NOT NULL DEFAULT '0',";
+      DB::table('report_totales')->insert([
+        'report_id'    => $rpt_id,
+        'columna'       => "p6_" . $i,
+        'n_group'       => "Propuesta 13",
+        'suma'          => 0,
+        'porcentaje'    => 0,
+      ]);
+    }
+    for($i=0; $i < (int)$request->input('p7'); $i++) {
+      $tableCreate .= "p7_" . $i. " varchar(10)  NOT NULL DEFAULT '0',";
+      DB::table('report_totales')->insert([
+        'report_id'    => $rpt_id,
+        'columna'       => "p7_" . $i,
+        'n_group'       => "Propuesta 14",
+        'suma'          => 0,
+        'porcentaje'    => 0,
+      ]);
+    }
+    for($i=0; $i < (int)$request->input('p8'); $i++) {
+      $tableCreate .= "p8_" . $i. " varchar(10)  NOT NULL DEFAULT '0',";
+      DB::table('report_totales')->insert([
+        'report_id'    => $rpt_id,
+        'columna'       => "p8_" . $i,
+        'n_group'       => "Propuesta 15",
+        'suma'          => 0,
+        'porcentaje'    => 0,
+      ]);
+    }
+    for($i=0; $i < (int)$request->input('p9'); $i++) {
+      $tableCreate .= "p9_" . $i. " varchar(10)  NOT NULL DEFAULT '0',";
+      DB::table('report_totales')->insert([
+        'report_id'    => $rpt_id,
+        'columna'       => "p9_" . $i,
+        'n_group'       => "Propuesta 16",
+        'suma'          => 0,
+        'porcentaje'    => 0,
+      ]);
+    }
+    for($i=0; $i < (int)$request->input('p10'); $i++) {
+      $tableCreate .= "p10_" . $i. " varchar(10)  NOT NULL DEFAULT '0',";
+      DB::table('report_totales')->insert([
+        'report_id'    => $rpt_id,
+        'columna'       => "p10_" . $i,
+        'n_group'       => "Propuesta 17",
+        'suma'          => 0,
+        'porcentaje'    => 0,
+      ]);
+    }
+    for($i=0; $i < (int)$request->input('p11'); $i++) {
+      $tableCreate .= "p11_" . $i. " varchar(10)  NOT NULL DEFAULT '0',";
+      DB::table('report_totales')->insert([
+        'report_id'    => $rpt_id,
+        'columna'       => "p11_" . $i,
+        'n_group'       => "Propuesta 18",
+        'suma'          => 0,
+        'porcentaje'    => 0,
+      ]);
+    }
+    for($i=0; $i < (int)$request->input('p12'); $i++) {
+      $tableCreate .= "p12_" . $i. " varchar(10)  NOT NULL DEFAULT '0',";
+      DB::table('report_totales')->insert([
+        'report_id'    => $rpt_id,
+        'columna'       => "p12_" . $i,
+        'n_group'       => "Propuesta 19",
+        'suma'          => 0,
+        'porcentaje'    => 0,
+      ]);
+    }
+    for($i=0; $i < (int)$request->input('p13'); $i++) {
+      $tableCreate .= "p13_" . $i. " varchar(10)  NOT NULL DEFAULT '0',";
+      DB::table('report_totales')->insert([
+        'report_id'    => $rpt_id,
+        'columna'       => "p13_" . $i,
+        'n_group'       => "Propuesta 20",
+        'suma'          => 0,
+        'porcentaje'    => 0,
+      ]);
     }
 
     $tableCreate .= " atencion int(10) NOT NULL, porcentaje int(10) NOT NULL DEFAULT '0' ) ENGINE=InnoDB DEFAULT CHARSET=latin1;";
@@ -510,6 +645,45 @@ class AlternativasController extends Controller {
     }
     if ($request->input('propuesta')==7) {
       $col='%legislacion%';
+    }
+    if ($request->input('propuesta')==8) {
+      $col='%p1%';
+    }
+    if ($request->input('propuesta')==9) {
+      $col='%p2%';
+    }
+    if ($request->input('propuesta')==10) {
+      $col='%p3%';
+    }
+    if ($request->input('propuesta')==11) {
+      $col='%p4%';
+    }
+    if ($request->input('propuesta')==12) {
+      $col='%p5%';
+    }
+    if ($request->input('propuesta')==13) {
+      $col='%p6%';
+    }
+    if ($request->input('propuesta')==14) {
+      $col='%p7%';
+    }
+    if ($request->input('propuesta')==15) {
+      $col='%p8%';
+    }
+    if ($request->input('propuesta')==16) {
+      $col='%p9%';
+    }
+    if ($request->input('propuesta')==17) {
+      $col='%p10%';
+    }
+    if ($request->input('propuesta')==18) {
+      $col='%p11%';
+    }
+    if ($request->input('propuesta')==19) {
+      $col='%p12%';
+    }
+    if ($request->input('propuesta')==20) {
+      $col='%p13%';
     }
 
     $avalidar=DB::table('report_totales')->where('report_id',$request->input('rpt_id'))->get();

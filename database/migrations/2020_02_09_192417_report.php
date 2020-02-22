@@ -25,6 +25,19 @@ class Report extends Migration
             $table->string('institucional')->default(0);
             $table->string('salud')->default(0);
             $table->string('legislacion')->default(0);
+            $table->string('p1')->default(0);
+            $table->string('p2')->default(0);
+            $table->string('p3')->default(0);
+            $table->string('p4')->default(0);
+            $table->string('p5')->default(0);
+            $table->string('p6')->default(0);
+            $table->string('p7')->default(0);
+            $table->string('p8')->default(0);
+            $table->string('p9')->default(0);
+            $table->string('p10')->default(0);
+            $table->string('p11')->default(0);
+            $table->string('p12')->default(0);
+            $table->string('p13')->default(0);
             $table->string('tabla');
         });
     }
