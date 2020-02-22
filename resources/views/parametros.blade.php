@@ -28,7 +28,7 @@
 
     <div class="row">
       <h3>Numero de propuestas:</h3>
-      <input type="number" class="form-control" id="np" name="np" style="text-align: center;" onchange="muestra(this.value);">
+      <input type="number" class="form-control" id="np" name="np" style="text-align: center;" onchange="muestra(this.value);" max="20">
     </div>
     <div class="row">
       <h3 id="g0" style="display: none;">Propuestas agrupadas:</h3>
