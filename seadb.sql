@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 19-01-2020 a las 19:12:28
+-- Tiempo de generación: 25-02-2020 a las 18:32:52
 -- Versión del servidor: 10.1.38-MariaDB
 -- Versión de PHP: 7.3.3
 
@@ -74,36 +74,32 @@ CREATE TABLE `failed_jobs` (
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `grupos`
+--
+
+CREATE TABLE `grupos` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `rpt` bigint(20) UNSIGNED NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `letra` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `texto` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `laws`
 --
 
 CREATE TABLE `laws` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `user_id` bigint(20) UNSIGNED NOT NULL,
-  `name_law` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `name_law` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `group` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Volcado de datos para la tabla `laws`
---
-
-INSERT INTO `laws` (`id`, `user_id`, `name_law`, `group`, `created_at`, `updated_at`) VALUES
-(46, 3, 'politica1', 'politica internacional', '2020-01-20 00:11:02', '2020-01-20 00:11:02'),
-(47, 3, 'plan1', 'plan internacional', '2020-01-20 00:11:06', '2020-01-20 00:11:06'),
-(48, 3, 'programa1', 'programa internacional', '2020-01-20 00:11:11', '2020-01-20 00:11:11'),
-(49, 3, 'politica nacional 1', 'politica nacional', '2020-01-20 00:11:18', '2020-01-20 00:11:18'),
-(50, 3, 'plan nacional 1', 'plan nacional', '2020-01-20 00:11:22', '2020-01-20 00:11:22'),
-(51, 3, 'programa nacional 1', 'programa nacional', '2020-01-20 00:11:27', '2020-01-20 00:11:27'),
-(52, 3, 'politica estatal 1', 'politica estatal', '2020-01-20 00:11:35', '2020-01-20 00:11:35'),
-(53, 3, 'plan estatal 1', 'plan estatal', '2020-01-20 00:11:40', '2020-01-20 00:11:40'),
-(54, 3, 'programa estatal 1', 'programa estatal', '2020-01-20 00:11:47', '2020-01-20 00:11:47'),
-(55, 3, 'politica municipal 1', 'politica municipal', '2020-01-20 00:11:53', '2020-01-20 00:11:53'),
-(56, 3, 'plan municipal 1', 'plan municipal', '2020-01-20 00:11:58', '2020-01-20 00:11:58'),
-(57, 3, 'programa municipal 1', 'programa municipal', '2020-01-20 00:12:03', '2020-01-20 00:12:03'),
-(58, 3, 'plan municipal 2', 'plan municipal', '2020-01-20 00:12:07', '2020-01-20 00:12:07');
 
 -- --------------------------------------------------------
 
@@ -122,14 +118,17 @@ CREATE TABLE `migrations` (
 --
 
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
-(105, '2014_10_12_000000_create_users_table', 1),
-(106, '2014_10_12_100000_create_password_resets_table', 1),
-(107, '2019_08_19_000000_create_failed_jobs_table', 1),
-(108, '2019_12_12_225629_create_projects_table', 1),
-(109, '2019_12_12_232236_create_characteristics_table', 1),
-(110, '2019_12_13_002253_create_elements_table', 1),
-(111, '2020_01_06_051707_create_networks_table', 1),
-(112, '2020_01_11_044702_create_laws_table', 2);
+(95, '2014_10_12_000000_create_users_table', 1),
+(96, '2014_10_12_100000_create_password_resets_table', 1),
+(97, '2019_08_19_000000_create_failed_jobs_table', 1),
+(98, '2019_12_12_225629_create_projects_table', 1),
+(99, '2019_12_12_232236_create_characteristics_table', 1),
+(100, '2019_12_13_002253_create_elements_table', 1),
+(101, '2020_01_06_051707_create_networks_table', 1),
+(102, '2020_01_11_044702_create_laws_table', 1),
+(103, '2020_02_09_192417_report', 1),
+(104, '2020_02_09_194004_report_totales', 1),
+(105, '2020_02_10_194316_grupos', 1);
 
 -- --------------------------------------------------------
 
@@ -172,12 +171,56 @@ CREATE TABLE `projects` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+-- --------------------------------------------------------
+
 --
--- Volcado de datos para la tabla `projects`
+-- Estructura de tabla para la tabla `report`
 --
 
-INSERT INTO `projects` (`id`, `user_id`, `name_problem`, `desc_problem`, `created_at`, `updated_at`) VALUES
-(8, 3, 'Agua potable', 'desc prueba', '2020-01-20 00:10:37', '2020-01-20 00:10:37');
+CREATE TABLE `report` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `project_id` bigint(20) UNSIGNED NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `politicas` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '0',
+  `educacion` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '0',
+  `investigacion` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '0',
+  `planeacion` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '0',
+  `institucional` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '0',
+  `salud` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '0',
+  `legislacion` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '0',
+  `p1` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '0',
+  `p2` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '0',
+  `p3` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '0',
+  `p4` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '0',
+  `p5` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '0',
+  `p6` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '0',
+  `p7` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '0',
+  `p8` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '0',
+  `p9` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '0',
+  `p10` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '0',
+  `p11` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '0',
+  `p12` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '0',
+  `p13` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '0',
+  `tabla` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `report_totales`
+--
+
+CREATE TABLE `report_totales` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `report_id` bigint(20) UNSIGNED NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `n_group` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `columna` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `suma` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `porcentaje` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -195,13 +238,6 @@ CREATE TABLE `users` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Volcado de datos para la tabla `users`
---
-
-INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(3, 'Armando', 'admin@admin.com', NULL, '$2y$10$q6rPyN9vM43uGS.FEkn.wO4g8xNyybtbpBNIQhF5Yr2etbd9lKYlG', NULL, '2020-01-20 00:10:23', '2020-01-20 00:10:23');
 
 --
 -- Índices para tablas volcadas
@@ -226,6 +262,12 @@ ALTER TABLE `elements`
 -- Indices de la tabla `failed_jobs`
 --
 ALTER TABLE `failed_jobs`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `grupos`
+--
+ALTER TABLE `grupos`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -262,6 +304,18 @@ ALTER TABLE `projects`
   ADD KEY `projects_user_id_foreign` (`user_id`);
 
 --
+-- Indices de la tabla `report`
+--
+ALTER TABLE `report`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `report_totales`
+--
+ALTER TABLE `report_totales`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indices de la tabla `users`
 --
 ALTER TABLE `users`
@@ -276,13 +330,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT de la tabla `characteristics`
 --
 ALTER TABLE `characteristics`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `elements`
 --
 ALTER TABLE `elements`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `failed_jobs`
@@ -291,16 +345,22 @@ ALTER TABLE `failed_jobs`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT de la tabla `grupos`
+--
+ALTER TABLE `grupos`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT de la tabla `laws`
 --
 ALTER TABLE `laws`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=113;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=106;
 
 --
 -- AUTO_INCREMENT de la tabla `networks`
@@ -312,13 +372,25 @@ ALTER TABLE `networks`
 -- AUTO_INCREMENT de la tabla `projects`
 --
 ALTER TABLE `projects`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `report`
+--
+ALTER TABLE `report`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `report_totales`
+--
+ALTER TABLE `report_totales`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- Restricciones para tablas volcadas

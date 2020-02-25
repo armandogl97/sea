@@ -9,8 +9,6 @@
         <div class="row justify-content-center">
             <h3>Listado de Proyectos</h3>
             
-
-
             <table class="table">
                 <thead>
                     <tr>

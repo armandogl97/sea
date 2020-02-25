@@ -603,8 +603,15 @@ class AlternativasController extends Controller {
   }
 
   public function letra($id,$letra) {
-    $gs = DB::table('grupos')->where('letra',$letra)->where('rpt',$id)->get();
-    return view('grupos')->with(compact('gs'))->with(compact('id'))->with(compact('letra'));
+    $breporte = DB::table('report')->where('id', $id)->first();
+    $bproject = DB::table('projects')->where('id',$breporte->project_id)->first();
+    if ($bproject->user_id == Auth::user()->id) {
+
+      $gs = DB::table('grupos')->where('letra',$letra)->where('rpt',$id)->get();
+      return view('grupos')->with(compact('gs'))->with(compact('id'))->with(compact('letra'));
+    }else{
+      return redirect("/home");
+    }
   }
 
   public function letradd(Request $request) {
@@ -695,12 +702,12 @@ class AlternativasController extends Controller {
     }
     if ($remplazo <1) {
 
-          $reporte_todos = DB::table('report_totales')->where('report_id',$request->input('rpt_id'))->where('columna', 'like', $col)->get();
-    foreach ($reporte_todos as $encontrado) {
-      DB::table('report_totales')
-      ->where('id', $encontrado->id)
-      ->update(['n_group' => $request->encabezado]);
-    }
+      $reporte_todos = DB::table('report_totales')->where('report_id',$request->input('rpt_id'))->where('columna', 'like', $col)->get();
+      foreach ($reporte_todos as $encontrado) {
+        DB::table('report_totales')
+        ->where('id', $encontrado->id)
+        ->update(['n_group' => $request->encabezado]);
+      }
     }
     return back();
   }

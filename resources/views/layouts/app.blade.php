@@ -44,6 +44,7 @@
                         <i class="material-icons">help</i>
                      </a>
                   </li>
+                  
                </ul>
             </div>
          </div>
@@ -117,6 +118,7 @@
       <div id="wrapper">
          @yield('content')
       </div>
+
 
    </body>
    <!--   Core JS Files   -->

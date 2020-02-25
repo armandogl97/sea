@@ -8,9 +8,9 @@
       <div class="row">
         <div class="col-md-8">
           <h1 class="title">Sistema de Evaluación Ambiental Estratégica. </h1>
-          <h4>TEXTO DESCRIPTIVO DEL SITIO A ELEGIR. / TEXTO DESCRIPTIVO DEL SITIO A ELEGIR. / TEXTO DESCRIPTIVO DEL SITIO A ELEGIR. /</h4>
         </div>
       </div>
     </div>
   </div>
+  
 @endsection
