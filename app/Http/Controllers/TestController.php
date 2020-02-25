@@ -13,9 +13,6 @@ class TestController extends Controller
 
 	public function manual()
 	{
-		$filePath = 'uploads/MANUAL-SEA.pdf';
-		$content = Storage::disk('local_public')->get($filePath);
-		dd($content);
-		//return Storage::response("uploads/MANUAL-SEA.pdf");
+		return Storage::response("uploads/MANUAL-SEA.pdf");
 	}
 }
