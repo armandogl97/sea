@@ -40,7 +40,7 @@
                   </li>
                   @endif
                   <li class="nav-item">
-                     <a target="_blank" href="public/img/MANUAL-SEA.pdf" rel="tooltip" class="fa" title="Descargar manual" style="color: white;vertical-align: top;margin: 0;padding: 0">
+                     <a target="_blank" href="{{ url('/manual')}}" rel="tooltip" class="fa" title="Descargar manual" style="color: white;vertical-align: top;margin: 0;padding: 0">
                         <i class="material-icons">help</i>
                      </a>
                   </li>
